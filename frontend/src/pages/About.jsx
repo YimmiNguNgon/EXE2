@@ -7,88 +7,111 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Giới thiệu - Grella | Đồ chơi Montessori từ bã cà phê</title>
+        <title>Giới thiệu - DearHim | Hộp quà dành cho nam</title>
         <meta
           name="description"
-          content="Grella - Thương hiệu đồ chơi Montessori từ bã cà phê tái chế. An toàn cho trẻ, thân thiện môi trường, phát triển tư duy sáng tạo."
+          content="DearHim - Thương hiệu hộp quà cá nhân hóa dành cho nam. Thiệp viết tay, ảnh in, sản phẩm chọn lọc - Tạo trải nghiệm đáng nhớ."
         />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA]">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 overflow-hidden">
+        {/* Floating Background Orbs */}
+        <div className="fixed top-20 left-10 w-96 h-96 bg-gradient-to-br from-yellow-300/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="fixed bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-300/20 to-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
         {/* Hero Section */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center py-16 px-6"
+          transition={{ duration: 0.8 }}
+          className="relative text-center py-20 px-6"
         >
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl sm:text-6xl font-extrabold text-[#704214] mb-6"
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+            className="inline-block mb-8"
           >
-            🌱 Về Grella
+            <div className="w-28 h-28 bg-gradient-to-br from-yellow-400 via-pink-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl">
+              <span className="text-6xl">🎁</span>
+            </div>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="text-5xl sm:text-7xl font-extrabold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-6"
+          >
+            Về DearHim
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-xl text-[#5a4633] max-w-3xl mx-auto leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium"
           >
-            Chúng tôi biến bã cà phê thành đồ chơi giáo dục — An toàn cho trẻ, thân thiện với môi trường
+            Biến mỗi món quà thành kỷ niệm đáng nhớ
           </motion.p>
         </motion.section>
 
         {/* Mission Section */}
-        <section className="py-12 px-6 bg-white/80">
+        <section className="py-16 px-6 relative">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-[#704214] mb-4">
-                🎯 Sứ mệnh của chúng tôi
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                Sứ mệnh của chúng tôi
               </h2>
-              <p className="text-lg text-[#5a4633] max-w-3xl mx-auto">
-                Grella ra đời với sứ mệnh tạo ra những món đồ chơi giáo dục chất lượng cao từ vật liệu tái chế,
-                giúp trẻ phát triển toàn diện theo phương pháp Montessori, đồng thời bảo vệ môi trường cho thế hệ tương lai.
+              <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                DearHim ra đời với sứ mệnh giúp bạn dễ dàng tặng quà ý nghĩa cho những người nam đặc biệt.
+                Mỗi hộp quà là một trải nghiệm được cá nhân hóa, tạo nên những kỷ niệm đáng nhớ và cảm xúc chân thành.
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: "🌍",
-                  title: "Bảo vệ môi trường",
-                  desc: "Tái chế hàng tấn bã cà phê mỗi năm, giảm thiểu rác thải và ô nhiễm môi trường."
+                  icon: "📦",
+                  title: "Cá nhân hóa",
+                  desc: "Mỗi hộp quà được thiết kế riêng biệt với thiệp tay, ảnh in và sản phẩm chọn lọc.",
+                  gradient: "from-blue-400 to-indigo-500"
                 },
                 {
-                  icon: "👶",
-                  title: "An toàn cho trẻ",
-                  desc: "100% vật liệu sinh học, không chứa hóa chất độc hại, được kiểm định nghiêm ngặt."
+                  icon: "💎",
+                  title: "Tinh tế",
+                  desc: "Thiết kế cao cấp, đóng gói chuyên nghiệp, tạo trải nghiệm mở hộp đáng nhớ.",
+                  gradient: "from-purple-400 to-pink-500"
                 },
                 {
-                  icon: "🎓",
-                  title: "Phát triển tư duy",
-                  desc: "Thiết kế theo phương pháp Montessori, kích thích sự sáng tạo và tư duy logic."
+                  icon: "❤️",
+                  title: "Ý nghĩa",
+                  desc: "Không chỉ là vật chất, mỗi hộp quà truyền tải cảm xúc và sự trân trọng.",
+                  gradient: "from-pink-400 to-rose-500"
                 }
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.15 }}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg text-center"
+                  className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl text-center relative overflow-hidden border border-white/60"
                 >
-                  <div className="text-6xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-bold text-[#704214] mb-3">{item.title}</h3>
-                  <p className="text-[#5a4633]">{item.desc}</p>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-5`}></div>
+                  <div className="relative z-10">
+                    <div className="text-7xl mb-6">{item.icon}</div>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">{item.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -96,302 +119,189 @@ export default function About() {
         </section>
 
         {/* Story Section */}
-        <section className="py-12 px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <h2 className="text-4xl font-bold text-[#704214] mb-6">
-                ☕ Câu chuyện của chúng tôi
-              </h2>
-              <div className="space-y-4 text-[#5a4633] leading-relaxed">
-                <p>
-                  Grella được thành lập vào năm 2024 bởi một nhóm các bậc phụ huynh và nhà giáo dục
-                  quan tâm đến môi trường. Chúng tôi nhận ra rằng mỗi năm có hàng triệu tấn bã cà phê
-                  bị vứt bỏ, gây ô nhiễm môi trường nghiêm trọng.
-                </p>
-                <p>
-                  Đồng thời, chúng tôi cũng lo lắng về chất lượng đồ chơi trẻ em trên thị trường —
-                  nhiều sản phẩm chứa hóa chất độc hại, làm từ nhựa không thể phân hủy, và không
-                  mang lại giá trị giáo dục thực sự.
-                </p>
-                <p>
-                  Từ đó, ý tưởng về Grella ra đời: Tại sao không biến "rác thải" thành tài nguyên?
-                  Tại sao không tạo ra những món đồ chơi vừa an toàn, vừa giáo dục, vừa thân thiện
-                  với môi trường?
-                </p>
-                <p className="font-semibold text-[#704214]">
-                  Và thế là Grella — đồ chơi Montessori từ bã cà phê — ra đời!
-                </p>
-              </div>
-            </motion.div>
+        <section className="py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">
+                  Câu chuyện của chúng tôi
+                </h2>
+                <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
+                  <p>
+                    <strong className="text-purple-600">DearHim</strong> sinh ra từ một ý tưởng đơn giản nhưng sâu sắc:
+                    mỗi người nam đều xứng đáng được trân trọng, dù họ ít khi nhận quà.
+                  </p>
+                  <p>
+                    Chúng tôi nhận thấy nhiều bạn trẻ gặp khó khăn khi chọn quà: lo món quà không đủ ý nghĩa,
+                    không phù hợp, hay quá cầu kỳ.
+                  </p>
+                  <p>
+                    Chính vì thế, <strong className="text-indigo-600">DearHim</strong> không chỉ là một hộp quà -
+                    đó là một trải nghiệm được thiết kế riêng cho từng người nhận. Mỗi hộp là sự kết hợp tinh tế
+                    giữa sản phẩm được lựa chọn cẩn thận, thiệp viết tay, ảnh in theo yêu cầu, logo và sticker thương hiệu.
+                  </p>
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200">
+                    <p className="font-bold text-purple-700 text-xl">
+                      DearHim giúp việc tặng quà trở nên đơn giản nhưng tinh tế, phù hợp ngân sách Gen Z,
+                      tạo nên dấu ấn riêng biệt!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="rounded-2xl overflow-hidden shadow-xl"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80"
-                alt="Bã cà phê tái chế"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative"
+              >
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80"
+                    alt="Hộp quà DearHim"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -inset-2 bg-gradient-to-br from-yellow-200 to-pink-200 rounded-3xl blur-2xl opacity-20 -z-10"></div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Process Section */}
-        <section className="py-12 px-6 bg-[#FFF9E6]">
-          <div className="max-w-6xl mx-auto">
+        {/* Process Section - REDESIGNED */}
+        <section className="py-16 px-6 bg-white/50 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-[#704214] mb-4">
-                🔄 Quy trình sản xuất
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                Quy trình tạo hộp quà
               </h2>
-              <p className="text-lg text-[#5a4633]">
-                Từ bã cà phê đến đồ chơi giáo dục — Mỗi bước đều được kiểm soát chặt chẽ
+              <p className="text-xl text-gray-700">
+                Từ ý tưởng đến hộp quà hoàn hảo — Mỗi bước đều được chăm chút tỉ mỉ
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {[
-                { step: "1", title: "Thu gom", desc: "Thu gom bã cà phê từ các quán cà phê địa phương" },
-                { step: "2", title: "Xử lý", desc: "Làm sạch, khử mùi và sấy khô hoàn toàn" },
-                { step: "3", title: "Gia công", desc: "Kết hợp với keo sinh học an toàn, không độc hại" },
-                { step: "4", title: "Tạo hình", desc: "Đúc khuôn thành các chi tiết đồ chơi theo thiết kế" },
-                { step: "5", title: "Kiểm định", desc: "Kiểm tra chất lượng và đóng gói thân thiện môi trường" }
+                { icon: '🛒', title: 'Chọn', desc: 'Chọn chủ đề hộp quà phù hợp với tính cách', gradient: 'from-blue-400 to-indigo-500', bg: 'from-blue-50 to-indigo-50' },
+                { icon: '✏️', title: 'Tùy chỉnh', desc: 'Thiệp viết tay, ảnh in theo yêu cầu cá nhân', gradient: 'from-purple-400 to-pink-500', bg: 'from-purple-50 to-pink-50' },
+                { icon: '📦', title: 'Đóng gói', desc: 'Đóng gói tinh tế với logo và sticker thương hiệu', gradient: 'from-pink-400 to-rose-500', bg: 'from-pink-50 to-rose-50' },
+                { icon: '🚚', title: 'Giao hàng', desc: 'Giao tận nơi, bảo mật và nhanh chóng', gradient: 'from-orange-400 to-red-500', bg: 'from-orange-50 to-red-50' },
+                { icon: '🎉', title: 'Trải nghiệm', desc: 'Người nhận mở hộp và tận hưởng niềm vui', gradient: 'from-yellow-400 to-orange-500', bg: 'from-yellow-50 to-orange-50' }
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-white rounded-2xl p-6 shadow-md text-center relative"
+                  whileHover={{ scale: 1.05, y: -8 }}
+                  className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl text-center relative overflow-hidden transition-all duration-300"
                 >
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#A8E6CF] text-[#225544] rounded-full flex items-center justify-center font-bold text-lg shadow-md">
-                    {item.step}
-                  </div>
-                  <h3 className="font-bold text-[#704214] mt-4 mb-2">{item.title}</h3>
-                  <p className="text-sm text-[#5a4633]">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+                  {/* Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.bg} opacity-50`}></div>
 
-        {/* Values Section */}
-        <section className="py-12 px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold text-[#704214] mb-4">
-                💎 Giá trị cốt lõi
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Bền vững",
-                  icon: "♻️",
-                  desc: "Chúng tôi cam kết sử dụng 100% vật liệu tái chế và quy trình sản xuất thân thiện môi trường. Mỗi sản phẩm Grella góp phần giảm thiểu rác thải và bảo vệ hành tinh xanh."
-                },
-                {
-                  title: "An toàn",
-                  icon: "🛡️",
-                  desc: "An toàn của trẻ là ưu tiên hàng đầu. Tất cả sản phẩm đều được làm từ vật liệu sinh học, không chứa BPA, phthalates hay bất kỳ hóa chất độc hại nào. Được kiểm định theo tiêu chuẩn quốc tế."
-                },
-                {
-                  title: "Giáo dục",
-                  icon: "📚",
-                  desc: "Thiết kế theo phương pháp Montessori, mỗi món đồ chơi Grella đều có mục đích giáo dục rõ ràng. Giúp trẻ phát triển vận động tinh, tư duy logic, khả năng giải quyết vấn đề và sự sáng tạo."
-                },
-                {
-                  title: "Chất lượng",
-                  icon: "⭐",
-                  desc: "Chúng tôi không chỉ tạo ra đồ chơi, mà tạo ra những sản phẩm bền vững có thể sử dụng lâu dài, thậm chí truyền lại cho thế hệ sau. Mỗi chi tiết đều được chăm chút tỉ mỉ."
-                }
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  whileHover={{ scale: 1.03 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="text-5xl">{item.icon}</div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-[#704214] mb-3">{item.title}</h3>
-                      <p className="text-[#5a4633] leading-relaxed">{item.desc}</p>
+                  {/* Icon */}
+                  <div className="relative z-10 mb-6">
+                    <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300`}>
+                      <span className="text-4xl">{item.icon}</span>
                     </div>
                   </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="font-bold text-2xl bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {/* Step Number Badge */}
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-bold text-gray-700 shadow">
+                    {idx + 1}
+                  </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Montessori Section */}
-        <section className="py-12 px-6 bg-[#E8FBEA]">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold text-[#2E7D32] mb-4">
-                🎓 Phương pháp Montessori
-              </h2>
-              <p className="text-lg text-[#2E4D25] max-w-3xl mx-auto">
-                Grella áp dụng triết lý Montessori vào từng sản phẩm
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="bg-white rounded-2xl p-8 shadow-md"
-              >
-                <h3 className="text-2xl font-bold text-[#2E7D32] mb-4">
-                  Nguyên tắc Montessori
-                </h3>
-                <ul className="space-y-3 text-[#2E4D25]">
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">✓</span>
-                    <span><strong>Tự lập:</strong> Trẻ được khuyến khích tự làm và khám phá</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">✓</span>
-                    <span><strong>Học qua làm:</strong> Trải nghiệm thực tế thay vì lý thuyết</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">✓</span>
-                    <span><strong>Tôn trọng:</strong> Tôn trọng tốc độ phát triển riêng của mỗi bé</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">✓</span>
-                    <span><strong>Môi trường chuẩn bị:</strong> Không gian học tập phù hợp</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="bg-white rounded-2xl p-8 shadow-md"
-              >
-                <h3 className="text-2xl font-bold text-[#2E7D32] mb-4">
-                  Lợi ích cho trẻ
-                </h3>
-                <ul className="space-y-3 text-[#2E4D25]">
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">★</span>
-                    <span>Phát triển vận động tinh và thô</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">★</span>
-                    <span>Kích thích tư duy logic và giải quyết vấn đề</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">★</span>
-                    <span>Tăng khả năng tập trung và kiên nhẫn</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#2E7D32] font-bold">★</span>
-                    <span>Nuôi dưỡng sự tự tin và độc lập</span>
-                  </li>
-                </ul>
-              </motion.div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-6">
+        <section className="py-20 px-6 relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="max-w-4xl mx-auto text-center bg-white rounded-3xl shadow-xl p-12"
+            className="max-w-5xl mx-auto text-center bg-white/90 backdrop-blur-xl rounded-[2.5rem] shadow-2xl p-12 md:p-16 border border-white/60 relative overflow-hidden"
           >
-            <h2 className="text-4xl font-bold text-[#704214] mb-6">
-              Cùng Grella bảo vệ môi trường! 🌍
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400"></div>
+
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-6">
+              Tạo hộp quà của bạn ngay!
             </h2>
-            <p className="text-lg text-[#5a4633] mb-8 leading-relaxed">
-              Mỗi món đồ chơi Grella bạn chọn là một bước nhỏ hướng tới tương lai xanh hơn.
-              Hãy cùng chúng tôi tạo ra thế hệ trẻ em yêu thiên nhiên, sáng tạo và có trách nhiệm với môi trường.
+            <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
+              Mỗi món quà DearHim bạn chọn là một trải nghiệm đáng nhớ.
+              Hãy cùng chúng tôi tạo nên những kỷ niệm đẹp với người đặc biệt của bạn.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <Link
                 to="/products"
-                className="px-8 py-4 bg-[#A8E6CF] text-[#225544] rounded-full font-bold text-lg hover:bg-[#8FD9B6] transition shadow-lg"
+                className="px-10 py-5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-500 text-white rounded-full font-bold text-lg hover:shadow-2xl transition hover:scale-105"
               >
-                🛒 Khám phá sản phẩm
+                Khám phá sản phẩm
               </Link>
               <Link
-                to="/blog"
-                className="px-8 py-4 bg-[#704214] text-white rounded-full font-bold text-lg hover:bg-[#8B5A2B] transition shadow-lg"
+                to="/create-wish"
+                className="px-10 py-5 bg-white border-3 border-purple-500 text-purple-700 rounded-full font-bold text-lg hover:bg-purple-50 transition hover:scale-105 shadow-lg"
               >
-                📚 Đọc blog
+                Tạo lời chúc QR
               </Link>
             </div>
           </motion.div>
         </section>
 
         {/* Contact Section */}
-        <section className="py-12 px-6 bg-[#F9F7F5]">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="py-16 px-6 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
+              className="text-center bg-white/80 backdrop-blur-lg rounded-3xl p-10 shadow-xl"
             >
-              <h2 className="text-3xl font-bold text-[#704214] mb-6">
-                📞 Liên hệ với chúng tôi
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-8">
+                Liên hệ với chúng tôi
               </h2>
-              <div className="space-y-3 text-[#5a4633]">
-                <p className="text-lg">
-                  <strong>Hotline:</strong> 0123-456-789
+              <div className="space-y-4 text-gray-700 text-lg">
+                <p>
+                  <strong className="text-purple-600">Hotline:</strong> 0123-456-789
                 </p>
-                <p className="text-lg">
-                  <strong>Email:</strong> hello@grella.example
+                <p>
+                  <strong className="text-purple-600">Email:</strong> hello@dearhim.vn
                 </p>
-                <p className="text-lg">
-                  <strong>Địa chỉ:</strong> 123 Đường Tái Chế, Quận Xanh, TP. HCM
+                <p>
+                  <strong className="text-purple-600">Địa chỉ:</strong> 123 Đường Tặng Quà, Quận 1, TP. HCM
                 </p>
               </div>
-              <div className="mt-8">
+              <div className="mt-10">
                 <Link
                   to="/"
-                  className="inline-block px-6 py-3 text-[#704214] hover:text-[#8B5A2B] font-medium transition"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold rounded-full hover:shadow-xl transition hover:scale-105"
                 >
                   ← Về trang chủ
                 </Link>

@@ -23,10 +23,10 @@ export default function Blog() {
   if (loading) {
     return (
       <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA]'>
-        <motion.div 
+        <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className='w-12 h-12 border-4 border-[#704214] border-t-transparent rounded-full'
+          className='w-12 h-12 border-4 border-[#1e3a5f] border-t-transparent rounded-full'
         />
       </div>
     );
@@ -35,23 +35,23 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Blog — Grella | Tư vấn Montessori & Đồ chơi sinh học</title>
-        <meta name="description" content="Khám phá các bài viết về Montessori, cách chọn đồ chơi, tái chế bã cà phê và nhiều hơn nữa." />
+        <title>Blog — DearHim | Tư vấn tặng quà & Hộp quà cá nhân hóa</title>
+        <meta name="description" content="Khám phá các bài viết về cách tặng quà ý nghĩa, ý tưởng hộp quà, và nhiều hơn nữa." />
       </Helmet>
 
-      <div className='min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA] py-12 px-4'>
+      <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-12 px-4'>
         <div className='max-w-6xl mx-auto'>
           {/* Header */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className='text-center mb-12'
           >
-            <h1 className='text-4xl sm:text-5xl font-bold text-[#704214] mb-4'>
+            <h1 className='text-4xl sm:text-5xl font-bold text-[#1e3a5f] mb-4'>
               Bài viết nổi bật
             </h1>
-            <p className='text-lg text-[#5a4633] max-w-2xl mx-auto'>
-              Tư vấn Montessori, mẹo chọn đồ chơi, cách tái chế bã cà phê.
+            <p className='text-lg text-[#2c5f8d] max-w-2xl mx-auto'>
+              Tư vấn tặng quà, ý tưởng hộp quà, cách làm quà ý nghĩa.
             </p>
           </motion.div>
 
@@ -74,8 +74,8 @@ export default function Blog() {
                   <Link to={`/blog/${blog.slug}`}>
                     <div className='relative h-48 bg-gradient-to-br from-[#FFE5B4] to-[#FFF5B1] overflow-hidden'>
                       {blog.image ? (
-                        <img 
-                          src={blog.image} 
+                        <img
+                          src={blog.image}
                           alt={blog.title}
                           className='w-full h-full object-cover'
                           onError={(e) => e.target.style.display = 'none'}
@@ -86,7 +86,7 @@ export default function Blog() {
                         </div>
                       )}
                       {blog.category && (
-                        <span className='absolute top-4 left-4 px-3 py-1 bg-white/90 text-[#704214] rounded-full text-xs font-semibold'>
+                        <span className='absolute top-4 left-4 px-3 py-1 bg-white/90 text-[#1e3a5f] rounded-full text-xs font-semibold'>
                           {blog.category}
                         </span>
                       )}
@@ -95,11 +95,11 @@ export default function Blog() {
 
                   <div className='p-6'>
                     <Link to={`/blog/${blog.slug}`}>
-                      <h2 className='text-xl font-bold text-[#704214] mb-3 hover:text-[#8B5A2B] transition line-clamp-2'>
+                      <h2 className='text-xl font-bold text-[#1e3a5f] mb-3 hover:text-[#2c5f8d] transition line-clamp-2'>
                         {blog.title}
                       </h2>
                     </Link>
-                    
+
                     <p className='text-gray-600 text-sm mb-4 line-clamp-3'>
                       {blog.excerpt}
                     </p>
@@ -109,9 +109,9 @@ export default function Blog() {
                       <span>{new Date(blog.createdAt).toLocaleDateString('vi-VN')}</span>
                     </div>
 
-                    <Link 
+                    <Link
                       to={`/blog/${blog.slug}`}
-                      className='inline-block text-sm text-[#A8E6CF] hover:text-[#8FD9B6] font-semibold transition'
+                      className='inline-block text-sm text-[#d4af37] hover:text-[#c19b2f] font-semibold transition'
                     >
                       Xem thêm →
                     </Link>
@@ -122,15 +122,15 @@ export default function Blog() {
           )}
 
           {/* Back to Home */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className='mt-12 text-center'
           >
-            <Link 
-              to='/' 
-              className='inline-block px-6 py-3 text-[#704214] hover:text-[#8B5A2B] font-medium transition'
+            <Link
+              to='/'
+              className='inline-block px-6 py-3 text-[#1e3a5f] hover:text-[#2c5f8d] font-medium transition'
             >
               ← Quay lại trang chủ
             </Link>

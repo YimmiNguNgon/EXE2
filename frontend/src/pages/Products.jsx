@@ -82,14 +82,14 @@ export default function Products() {
   return (
     <>
       <Helmet>
-        <title>Sản phẩm - Grella | Đồ chơi Montessori từ bã cà phê</title>
+        <title>Sản phẩm - DearHim | Hộp quà dành cho nam giới</title>
         <meta
           name="description"
-          content="Khám phá bộ sưu tập đồ chơi Montessori từ bã cà phê của Grella. An toàn, thân thiện môi trường."
+          content="Khám phá bộ sưu tập hộp quà tinh tế dành cho nam giới. Thiệp viết tay, ảnh in đẹp, quà chọn lọc."
         />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA] py-8 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-8 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
@@ -97,11 +97,11 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
-            <h1 className="text-4xl font-bold text-[#704214] mb-2">
-              🧸 Sản phẩm Grella
+            <h1 className="text-4xl font-bold text-[#1e3a5f] mb-2">
+              Hộp quà DearHim
             </h1>
-            <p className="text-[#5a4633]">
-              Đồ chơi Montessori từ bã cà phê - An toàn & Thân thiện môi trường
+            <p className="text-[#2c5f8d]">
+              Hộp quà dành cho nam - Thiệp tay, ảnh in đẹp & Quà chọn lọc
             </p>
           </motion.div>
 
@@ -114,33 +114,32 @@ export default function Products() {
           >
             {/* Search by name */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-[#704214] mb-2">
-                🔍 Tìm kiếm sản phẩm
+              <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
+                Tìm kiếm sản phẩm
               </label>
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Nhập tên sản phẩm..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A8E6CF]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
               />
             </div>
 
             {/* Price Range Buttons */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-[#704214] mb-3">
-                💰 Lọc theo khoảng giá
+              <label className="block text-sm font-medium text-[#1e3a5f] mb-3">
+                Lọc theo khoảng giá
               </label>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                 {priceRanges.map((range, idx) => (
                   <button
                     key={idx}
                     onClick={() => handlePriceRangeSelect(range)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-                      selectedPriceRange === range.label
-                        ? "bg-[#A8E6CF] text-[#225544] shadow-md"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${selectedPriceRange === range.label
+                      ? "bg-[#d4af37] text-white shadow-md"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
                   >
                     {range.label}
                   </button>
@@ -151,8 +150,8 @@ export default function Products() {
             {/* Custom Price Range */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div>
-                <label className="block text-sm font-medium text-[#704214] mb-2">
-                  💰 Giá tối thiểu (tùy chỉnh)
+                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
+                  Giá tối thiểu (tùy chỉnh)
                 </label>
                 <input
                   type="number"
@@ -162,13 +161,13 @@ export default function Products() {
                     setSelectedPriceRange("");
                   }}
                   placeholder="0"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A8E6CF]"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#704214] mb-2">
-                  💰 Giá tối đa (tùy chỉnh)
+                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
+                  Giá tối đa (tùy chỉnh)
                 </label>
                 <input
                   type="number"
@@ -178,19 +177,19 @@ export default function Products() {
                     setSelectedPriceRange("");
                   }}
                   placeholder="1000000"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A8E6CF]"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
                 />
               </div>
 
               {/* Sort */}
               <div>
-                <label className="block text-sm font-medium text-[#704214] mb-2">
-                  📊 Sắp xếp
+                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
+                  Sắp xếp
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A8E6CF]"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
                 >
                   <option value="default">Mặc định</option>
                   <option value="price-asc">Giá: Thấp đến cao</option>
@@ -202,14 +201,14 @@ export default function Products() {
 
             {/* Reset button */}
             <div className="flex justify-between items-center">
-              <div className="text-sm text-[#5a4633]">
+              <div className="text-sm text-[#2c5f8d]">
                 Tìm thấy <span className="font-bold">{filteredProducts.length}</span> sản phẩm
               </div>
               <button
                 onClick={handleResetFilters}
-                className="px-4 py-2 bg-[#FFB7B2] text-white rounded-lg hover:bg-[#ffa3a0] transition"
+                className="px-4 py-2 bg-[#d4af37] text-white rounded-lg hover:bg-[#c19b2f] transition"
               >
-                🔄 Đặt lại bộ lọc
+                Đặt lại bộ lọc
               </button>
             </div>
           </motion.div>
@@ -223,10 +222,10 @@ export default function Products() {
                 className="col-span-full text-center py-20"
               >
                 <div className="text-6xl mb-4">🔍</div>
-                <div className="text-xl text-[#704214] font-semibold mb-2">
-                  Không tìm thấy sản phẩm
+                <div className="text-xl text-[#1e3a5f] font-semibold mb-2">
+                  Không tìm thấy hộp quà
                 </div>
-                <div className="text-[#5a4633]">
+                <div className="text-[#2c5f8d]">
                   Thử điều chỉnh bộ lọc hoặc tìm kiếm khác
                 </div>
               </motion.div>
@@ -252,12 +251,12 @@ export default function Products() {
                   <div className="p-4 flex-1 flex flex-col">
                     <Link
                       to={`/product/${p._id}`}
-                      className="font-semibold text-lg text-[#704214] hover:text-[#a64b4b] transition"
+                      className="font-semibold text-lg text-[#1e3a5f] hover:text-[#2c5f8d] transition"
                     >
                       {p.name}
                     </Link>
 
-                    <div className="text-[#2e7d32] font-bold text-xl mt-2">
+                    <div className="text-[#d4af37] font-bold text-xl mt-2">
                       {(p.price || 0).toLocaleString("vi-VN")}₫
                     </div>
 
@@ -269,9 +268,9 @@ export default function Products() {
                     {p.stock !== undefined && (
                       <div className="text-xs text-gray-500 mt-2">
                         {p.stock > 0 ? (
-                          <span className="text-green-600">✓ Còn hàng ({p.stock})</span>
+                          <span className="text-green-600">Còn hàng ({p.stock})</span>
                         ) : (
-                          <span className="text-red-600">✗ Hết hàng</span>
+                          <span className="text-red-600">Hết hàng</span>
                         )}
                       </div>
                     )}
@@ -289,19 +288,18 @@ export default function Products() {
                           })
                         }
                         disabled={p.stock === 0}
-                        className={`flex-1 px-4 py-2 rounded-full transition ${
-                          p.stock === 0
-                            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                            : "bg-[#A8E6CF] text-[#225544] hover:opacity-90"
-                        }`}
+                        className={`flex-1 px-4 py-2 rounded-full transition ${p.stock === 0
+                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          : "bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-white hover:opacity-90 font-bold"
+                          }`}
                         aria-label={`Thêm ${p.name} vào giỏ`}
                       >
-                        🛒 Thêm
+                        Thêm vào giỏ
                       </motion.button>
 
                       <Link
                         to={`/product/${p._id}`}
-                        className="text-sm text-[#a64b4b] underline hover:text-[#704214] transition"
+                        className="text-sm text-[#1e3a5f] font-semibold hover:text-[#2c5f8d] transition"
                       >
                         Chi tiết
                       </Link>
@@ -321,7 +319,7 @@ export default function Products() {
           >
             <Link
               to="/"
-              className="inline-block px-6 py-3 bg-[#704214] text-white rounded-full hover:bg-[#8B5A2B] transition"
+              className="inline-block px-6 py-3 bg-[#1e3a5f] text-white rounded-full hover:bg-[#2c5f8d] transition"
             >
               ← Về trang chủ
             </Link>

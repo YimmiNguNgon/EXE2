@@ -5,16 +5,16 @@ import { useOutletContext } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 
-export default function ProductPage(){
+export default function ProductPage() {
   const { id } = useParams();
   const [p, setP] = useState(null);
   const { addToCart } = useOutletContext();
 
-  useEffect(()=>{ api.get(`/products/${id}`).then(r=> setP(r.data)).catch(()=>{}) }, [id])
-  
-  if(!p) return (
+  useEffect(() => { api.get(`/products/${id}`).then(r => setP(r.data)).catch(() => { }) }, [id])
+
+  if (!p) return (
     <div className='min-h-screen flex items-center justify-center'>
-      <motion.div 
+      <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         className='w-12 h-12 border-4 border-[#704214] border-t-transparent rounded-full'
@@ -32,7 +32,7 @@ export default function ProductPage(){
       <div className='min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA] py-8 px-4'>
         <div className='max-w-6xl mx-auto'>
           {/* Breadcrumb */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className='mb-6 text-sm text-[#704214]'
@@ -42,7 +42,7 @@ export default function ProductPage(){
             <span>{p.name}</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -50,15 +50,15 @@ export default function ProductPage(){
           >
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 p-8'>
               {/* Image Section */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 className='relative'
               >
-                <motion.img 
-                  src={p.img || 'https://via.placeholder.com/600x400'} 
-                  alt={p.name} 
+                <motion.img
+                  src={p.img || 'https://via.placeholder.com/600x400'}
+                  alt={p.name}
                   className='w-full h-96 object-cover rounded-2xl shadow-lg'
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -71,7 +71,7 @@ export default function ProductPage(){
               </motion.div>
 
               {/* Info Section */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -82,9 +82,9 @@ export default function ProductPage(){
                     {p.category}
                   </span>
                 )}
-                
+
                 <h1 className='text-4xl font-bold text-[#704214] mb-3'>{p.name}</h1>
-                
+
                 <div className='flex items-baseline gap-3 mb-6'>
                   <div className='text-3xl font-bold text-[#2E7D32]'>
                     {p.price.toLocaleString('vi-VN')}₫
@@ -99,7 +99,7 @@ export default function ProductPage(){
                 {/* Features */}
                 {p.features && p.features.length > 0 && (
                   <div className='mb-6'>
-                    <h3 className='font-semibold text-[#704214] mb-3'>✨ Đặc điểm nổi bật:</h3>
+                    <h3 className='font-semibold text-[#704214] mb-3'>Đặc điểm nổi bật:</h3>
                     <ul className='space-y-2'>
                       {p.features.map((feature, idx) => (
                         <motion.li
@@ -121,10 +121,10 @@ export default function ProductPage(){
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={()=> addToCart({ id: p._id, name: p.name, price: p.price, img: p.img })}
+                  onClick={() => addToCart({ id: p._id, name: p.name, price: p.price, img: p.img })}
                   className='w-full py-4 bg-gradient-to-r from-[#A8E6CF] to-[#8FD9B6] text-[#225544] rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow'
                 >
-                  🛒 Thêm vào giỏ hàng
+                  Thêm vào giỏ hàng
                 </motion.button>
 
                 {/* Additional Info */}
@@ -142,14 +142,14 @@ export default function ProductPage(){
           </motion.div>
 
           {/* Back Button */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className='mt-8 text-center'
           >
-            <Link 
-              to='/' 
+            <Link
+              to='/'
               className='inline-block px-6 py-3 text-[#704214] hover:text-[#8B5A2B] font-medium transition'
             >
               ← Quay lại trang chủ

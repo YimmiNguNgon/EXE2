@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import api from '../api'
 
-export default function Admin(){
+export default function Admin() {
   const navigate = useNavigate()
   const { user } = useOutletContext()
   const [activeTab, setActiveTab] = useState('dashboard')
-  
+
   const [stats, setStats] = useState({ products: 0, orders: 0, users: 0, revenue: 0, blogs: 0 })
   const [products, setProducts] = useState([])
   const [productForm, setProductForm] = useState({ name: '', price: '', img: '', desc: '', age: '', stock: '', category: '' })
@@ -47,25 +47,25 @@ export default function Admin(){
   }, [products, orders, users, blogs])
 
   function loadProducts() {
-    api.get('/products').then(r => setProducts(r.data || [])).catch(() => {})
+    api.get('/products').then(r => setProducts(r.data || [])).catch(() => { })
   }
 
   function loadOrders() {
-    api.get('/orders').then(r => setOrders(r.data || [])).catch(() => {})
+    api.get('/orders').then(r => setOrders(r.data || [])).catch(() => { })
   }
 
   function loadUsers() {
-    api.get('/auth/users').then(r => setUsers(r.data || [])).catch(() => {})
+    api.get('/auth/users').then(r => setUsers(r.data || [])).catch(() => { })
   }
 
   function loadBlogs() {
-    api.get('/blogs').then(r => setBlogs(r.data || [])).catch(() => {})
+    api.get('/blogs').then(r => setBlogs(r.data || [])).catch(() => { })
   }
 
   function submitProduct(e) {
     e.preventDefault()
-    const payload = { 
-      ...productForm, 
+    const payload = {
+      ...productForm,
       price: Number(productForm.price),
       stock: Number(productForm.stock) || 0
     }
@@ -200,16 +200,15 @@ export default function Admin(){
               {[
                 { id: 'dashboard', label: '📊 Dashboard' },
                 { id: 'products', label: '🧸 Sản phẩm' },
-                { id: 'orders', label: '📦 Đơn hàng' },
+                { id: 'orders', label: 'Đơn hàng' },
                 { id: 'users', label: '👥 Người dùng' },
                 { id: 'blogs', label: '📝 Blog' }
               ].map(tab => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition ${
-                    activeTab === tab.id ? 'bg-[#A8E6CF] text-[#225544] shadow-md' : 'text-[#704214] hover:bg-gray-100'
-                  }`}
+                  className={`px-6 py-3 rounded-xl font-medium transition ${activeTab === tab.id ? 'bg-[#A8E6CF] text-[#225544] shadow-md' : 'text-[#704214] hover:bg-gray-100'
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -248,7 +247,7 @@ export default function Admin(){
               </div>
 
               <div className="bg-white rounded-2xl shadow-md p-6">
-                <h2 className="text-xl font-bold text-[#704214] mb-4">📦 Đơn hàng gần đây</h2>
+                <h2 className="text-xl font-bold text-[#704214] mb-4">Đơn hàng gần đây</h2>
                 <div className="space-y-3">
                   {orders.slice(0, 5).map(order => (
                     <div key={order._id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
@@ -258,10 +257,9 @@ export default function Admin(){
                       </div>
                       <div className="text-right">
                         <div className="font-bold text-[#2e7d32]">{(order.total || 0).toLocaleString('vi-VN')}₫</div>
-                        <div className={`text-xs px-2 py-1 rounded ${
-                          order.status === 'completed' ? 'bg-green-100 text-green-700' :
-                          order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
-                        }`}>{order.status}</div>
+                        <div className={`text-xs px-2 py-1 rounded ${order.status === 'completed' ? 'bg-green-100 text-green-700' :
+                            order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
+                          }`}>{order.status}</div>
                       </div>
                     </div>
                   ))}
@@ -347,11 +345,10 @@ export default function Admin(){
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-bold text-[#2e7d32]">{(order.total || 0).toLocaleString('vi-VN')}₫</div>
-                        <select value={order.status} onChange={e => updateOrderStatus(order._id, e.target.value)} className={`mt-2 px-3 py-1 rounded-lg text-sm font-medium ${
-                          order.status === 'completed' ? 'bg-green-100 text-green-700' :
-                          order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
-                          order.status === 'shipping' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'
-                        }`}>
+                        <select value={order.status} onChange={e => updateOrderStatus(order._id, e.target.value)} className={`mt-2 px-3 py-1 rounded-lg text-sm font-medium ${order.status === 'completed' ? 'bg-green-100 text-green-700' :
+                            order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                              order.status === 'shipping' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'
+                          }`}>
                           <option value="pending">Chờ xử lý</option>
                           <option value="shipping">Đang giao</option>
                           <option value="completed">Hoàn thành</option>
@@ -483,9 +480,8 @@ export default function Admin(){
                         <td className="py-3 px-4 text-sm text-gray-600">{u.email}</td>
                         <td className="py-3 px-4 text-sm text-gray-600">{u.phone || 'N/A'}</td>
                         <td className="py-3 px-4">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            u.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-700'
-                          }`}>{u.role === 'admin' ? '👑 Admin' : '👤 User'}</span>
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${u.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-700'
+                            }`}>{u.role === 'admin' ? '👑 Admin' : '👤 User'}</span>
                         </td>
                         <td className="py-3 px-4 text-sm text-gray-600">{new Date(u.createdAt).toLocaleDateString('vi-VN')}</td>
                         <td className="py-3 px-4">

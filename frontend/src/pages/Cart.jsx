@@ -84,7 +84,7 @@ export default function Cart() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl font-bold text-[#704214] mb-8">🛒 Giỏ hàng của bạn</h1>
+            <h1 className="text-4xl font-bold text-[#704214] mb-8">Giỏ hàng của bạn</h1>
 
             {cart.length === 0 ? (
               <motion.div

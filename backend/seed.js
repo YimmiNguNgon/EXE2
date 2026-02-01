@@ -2,63 +2,83 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product');
 require('dotenv').config();
 
-async function seed(){
+async function seed() {
   await mongoose.connect(process.env.MONGO_URI);
   await Product.deleteMany({});
   const items = [
-    { 
-      name: 'Grella - Vườn ngôn ngữ', 
-      price: 400000, 
-      age: '3-5', 
-      stock: 35,
-      img: '/images/products/alphabet-tree.jpg', 
-      desc: 'Bộ đồ chơi học chữ cái với 35 chi tiết, giúp bé làm quen với ngôn ngữ qua trò chơi tương tác. Thiết kế cây chữ cái độc đáo, kích thích tư duy sáng tạo và khả năng nhận biết chữ cái.',
-      features: ['35 chi tiết đa dạng', 'Học chữ cái qua trò chơi', 'Phát triển ngôn ngữ', 'Vật liệu từ bã cà phê'],
-      category: 'Ngôn ngữ'
+    {
+      name: 'Hộp quà "Classic Man" ☕',
+      price: 450000,
+      age: 'Người lớn',
+      stock: 25,
+      img: '/images/products/classic-man.jpg',
+      desc: 'Hộp quà dành cho quý ông yêu thích sự lịch lãm. Bao gồm: Cà phê specialty, sổ tay da cao cấp, bút ký kim loại, và thiệp viết tay.',
+      features: ['Cà phê specialty 250g', 'Sổ tay da thật', 'Bút ký cao cấp', 'Thiệp viết tay + ảnh'],
+      category: 'Công sở'
     },
-    { 
-      name: 'Grella - Cây toán học', 
-      price: 420000, 
-      age: '3-5', 
-      stock: 40,
-      img: '/images/products/counting-board.jpg', 
-      desc: 'Bộ đồ chơi toán học với 40 chi tiết, giúp bé học đếm số, nhận biết màu sắc và hình dạng. Phát triển tư duy logic và kỹ năng toán học cơ bản qua hoạt động thực hành.',
-      features: ['40 chi tiết phong phú', 'Học đếm và tính toán', 'Nhận biết màu sắc', 'An toàn cho trẻ'],
-      category: 'Toán học'
+    {
+      name: 'Hộp quà "Sport Lover" ⚽',
+      price: 500000,
+      age: 'Người lớn',
+      stock: 20,
+      img: '/images/products/sport-lover.jpg',
+      desc: 'Dành cho những chàng trai yêu thể thao. Bao gồm: Khăn thể thao, bình nước cao cấp, dây đeo tay thể thao, và thiệp động viên.',
+      features: ['Khăn thể thao premium', 'Bình nước 750ml', 'Dây đeo tay silicon', 'Thiệp tay chân thành'],
+      category: 'Thể thao'
     },
-    { 
-      name: 'Grella - Khám phá vũ trụ', 
-      price: 450000, 
-      age: '3-5', 
+    {
+      name: 'Hộp quà "Tech Geek" 💻',
+      price: 550000,
+      age: 'Người lớn',
+      stock: 18,
+      img: '/images/products/tech-geek.jpg',
+      desc: 'Cho những tín đồ công nghệ. Bao gồm: Đế đỡ laptop, chuột không dây, túi đựng phụ kiện, và thiệp viết tay.',
+      features: ['Đế laptop nhôm', 'Chuột wireless', 'Túi phụ kiện canvas', 'Thiệp + ảnh kỷ niệm'],
+      category: 'Công nghệ'
+    },
+    {
+      name: 'Hộp quà "Romantic" 💝',
+      price: 650000,
+      age: 'Người lớn',
       stock: 30,
-      img: '/images/products/solar-system.jpg', 
-      desc: 'Bộ đồ chơi khám phá vũ trụ với 30 chi tiết, giúp bé tìm hiểu về hệ mặt trời, hành tinh và không gian. Kích thích trí tưởng tượng và niềm đam mê khoa học từ nhỏ.',
-      features: ['30 chi tiết vũ trụ', 'Học về hệ mặt trời', 'Phát triển tư duy khoa học', 'Chất liệu sinh học'],
-      category: 'Khoa học'
+      img: '/images/products/romantic.jpg',
+      desc: 'Hộp quà lãng mạn cho người yêu. Bao gồm: Nến thơm cao cấp, khung ảnh đôi, album ảnh mini, hoa hồng sáp, và thiệp tình yêu viết tay.',
+      features: ['Nến thơm pháp', 'Khung ảnh đôi sang trọng', 'Album 20 ảnh', 'Hoa hồng sáp + thiệp tay'],
+      category: 'Tình yêu'
     },
-    { 
-      name: 'Grella - Kiến trúc sư nhỏ', 
-      price: 800000, 
-      age: '3-5', 
-      stock: 60,
-      img: '/images/products/castle-blocks.jpg', 
-      desc: 'Bộ xếp hình lâu đài với 60 chi tiết đa dạng, giúp bé phát triển khả năng không gian, sáng tạo và kỹ năng xây dựng. Thiết kế màu sắc pastel dịu nhẹ, an toàn tuyệt đối.',
-      features: ['60 chi tiết xếp hình', 'Phát triển tư duy không gian', 'Kích thích sáng tạo', 'Màu sắc pastel dịu mắt'],
-      category: 'Xây dựng'
+    {
+      name: 'Hộp quà "Father\'s Pride" 👨',
+      price: 700000,
+      age: 'Người lớn',
+      stock: 15,
+      img: '/images/products/father-pride.jpg',
+      desc: 'Món quà tri ân dành cho bố. Bao gồm: Ví da bò thật, thắt lưng da, trà cao cấp, và thiệp cảm ơn chân thành.',
+      features: ['Ví da bò Italy', 'Thắt lưng da thật', 'Trà ô long 100g', 'Thiệp viết tay + ảnh gia đình'],
+      category: 'Gia đình'
     },
-    { 
-      name: 'Grella - Hệ sinh thái trí tuệ', 
-      price: 1000000, 
-      age: '3-5', 
-      stock: 80,
-      img: '/images/products/math-abacus.jpg', 
-      desc: 'Bộ đồ chơi toàn diện với 80 chi tiết, kết hợp toán học, logic và kỹ năng giải quyết vấn đề. Sản phẩm cao cấp nhất của Grella, phát triển đa chiều cho trẻ.',
-      features: ['80 chi tiết cao cấp', 'Phát triển đa kỹ năng', 'Tích hợp nhiều hoạt động', 'Chất lượng premium'],
-      category: 'Tổng hợp'
+    {
+      name: 'Hộp quà "Minimalist" 🎨',
+      price: 400000,
+      age: 'Người lớn',
+      stock: 22,
+      img: '/images/products/minimalist.jpg',
+      desc: 'Phong cách tối giản, sang trọng. Bao gồm: Móc khóa da, ví card nhỏ gọn, bút bi cao cấp, và thiệp viết tay.',
+      features: ['Móc khóa da thật', 'Ví card tối giản', 'Bút bi Parker', 'Thiệp viết tay'],
+      category: 'Phong cách'
+    },
+    {
+      name: 'Hộp quà "Custom Dream" ✨',
+      price: 800000,
+      age: 'Người lớn',
+      stock: 10,
+      img: '/images/products/custom-dream.jpg',
+      desc: 'Hộp quà tùy chỉnh hoàn toàn theo ý bạn. Chọn sản phẩm yêu thích, thiết kế thiệp riêng, chọn ảnh in đẹp - Tạo nên món quà độc nhất!',
+      features: ['Tự chọn 5-7 món quà', 'Thiết kế thiệp theo yêu cầu', 'In ảnh chất lượng cao', 'Đóng gói cao cấp nhất'],
+      category: 'Cao cấp'
     }
   ];
   await Product.insertMany(items);
-  console.log('✅ Seeded 5 Grella products successfully!');
+  console.log('✅ Seeded 7 DearHim gift boxes successfully!');
   process.exit();
 }
 seed();

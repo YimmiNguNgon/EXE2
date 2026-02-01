@@ -2,337 +2,504 @@ const mongoose = require('mongoose');
 const Blog = require('./models/Blog');
 require('dotenv').config();
 
-async function seedBlogs(){
+async function seedBlogs() {
   await mongoose.connect(process.env.MONGO_URI);
   await Blog.deleteMany({});
-  
+
   const blogs = [
     {
-      title: 'Giới thiệu về Grella - Đồ chơi từ bã cà phê',
-      slug: 'gioi-thieu-ve-grella',
-      excerpt: 'Khám phá câu chuyện đằng sau Grella và sứ mệnh tạo ra đồ chơi thân thiện môi trường.',
+      title: 'Làm sao để chọn quà cho nam giới? ',
+      slug: 'lam-sao-de-chon-qua-cho-nam-gioi',
+      excerpt: 'Bí quyết chọn món quà ý nghĩa cho "anh ấy" mà không cần đau đầu!',
       content: `
-        <h2>Grella là gì?</h2>
-        <p>Grella là thương hiệu đồ chơi Montessori được làm từ bã cà phê tái chế. Chúng tôi tin rằng đồ chơi không chỉ để giải trí, mà còn là công cụ giáo dục quan trọng giúp trẻ phát triển toàn diện.</p>
+        <h2>Tặng quà cho nam giới - Có gì khó đâu! </h2>
+        <p>Nhiều bạn gái hay lo lắng không biết tặng gì cho người yêu, chồng, bố, anh trai... Nhưng thực ra, chọn quà cho nam giới không hề khó như bạn nghĩ đâu nhé!</p>
         
-        <h2>Tại sao chọn bã cà phê?</h2>
-        <p>Mỗi năm, hàng triệu tấn bã cà phê bị vứt bỏ, gây ô nhiễm môi trường nghiêm trọng. Grella biến "rác thải" này thành tài nguyên quý giá, tạo ra đồ chơi an toàn và bền vững.</p>
-        
-        <h2>Quy trình sản xuất</h2>
-        <ol>
-          <li><strong>Thu gom:</strong> Bã cà phê được thu gom từ các quán cà phê địa phương</li>
-          <li><strong>Xử lý:</strong> Làm sạch, khử mùi và sấy khô hoàn toàn</li>
-          <li><strong>Gia công:</strong> Kết hợp với keo sinh học an toàn, không độc hại</li>
-          <li><strong>Tạo hình:</strong> Đúc khuôn thành các chi tiết đồ chơi</li>
-          <li><strong>Kiểm định:</strong> Kiểm tra chất lượng nghiêm ngặt</li>
-        </ol>
-        
-        <h2>Cam kết của Grella</h2>
+        <h2>Bí quyết #1: Lắng nghe sở thích</h2>
+        <p>Anh ấy thích gì? Đam mê nào? Môn thể thao nào? Nghe có vẻ đơn giản nhưng đây là chìa khóa quan trọng nhất!</p>
         <ul>
-          <li>100% vật liệu tái chế và sinh học</li>
-          <li>Không chứa BPA, phthalates hay hóa chất độc hại</li>
-          <li>Thiết kế theo phương pháp Montessori</li>
-          <li>Đóng gói thân thiện môi trường</li>
+          <li>Thích công nghệ → Gadgets, phụ kiện tech</li>
+          <li>Yêu thể thao → Dụng cụ tập, đồ thể thao</li>
+          <li>Đam mê cà phê → Bộ pha cà phê, cà phê specialty</li>
+          <li>Thích phong cách → Quần áo, phụ kiện thời trang</li>
         </ul>
         
-        <h2>Sứ mệnh của chúng tôi</h2>
-        <p>Grella không chỉ tạo ra đồ chơi, mà còn góp phần xây dựng tương lai xanh hơn cho thế hệ trẻ. Mỗi sản phẩm Grella là một bước nhỏ hướng tới hành tinh bền vững.</p>
+        <h2>Bí quyết #2: Cá nhân hóa món quà</h2>
+        <p>Đừng chỉ mua một món quà, hãy biến nó trở nên <strong>đặc biệt</strong>:</p>
+        <ul>
+          <li> Thêm lời nhắn viết tay chân thành</li>
+          <li> Kèm ảnh kỷ niệm của hai người</li>
+          <li> Khắc tên hoặc ngày đặc biệt</li>
+          <li> Đóng gói đẹp mắt, tinh tế</li>
+        </ul>
         
-        <p><strong>Cùng Grella bảo vệ môi trường và nuôi dưỡng thế hệ tương lai!</strong></p>
+        <h2>Bí quyết #3: Đừng lo về giá cả!</h2>
+        <p>Món quà ý nghĩa không nhất thiết phải đắt. Điều quan trọng là <strong>sự chân thành</strong> và <strong>tâm ý</strong> bạn dành cho anh ấy.</p>
+        
+        <h2>DearHim - Giải pháp hoàn hảo </h2>
+        <p>Hộp quà DearHim đã chuẩn bị sẵn mọi thứ cho bạn: quà chọn lọc, thiệp viết tay, ảnh in đẹp. Bạn chỉ cần chọn và trao đi yêu thương!</p>
+        
+        <p><strong>Nhớ nhé: Mon quà tuyệt vời nhất là sự quan tâm và yêu thương! </strong></p>
       `,
-      image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',
-      category: 'Giới thiệu',
-      tags: ['Grella', 'Giới thiệu', 'Môi trường', 'Tái chế'],
+      image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80',
+      category: 'Hướng dẫn',
+      tags: ['Chọn quà', 'Nam giới', 'Hướng dẫn'],
       readTime: 5
     },
     {
-      title: 'Montessori: Hướng dẫn cho phụ huynh',
-      slug: 'montessori-huong-dan-cho-phu-huynh',
-      excerpt: 'Tự học qua cảm quan: cách chọn đồ chơi phù hợp cho bé.',
+      title: '10 ý tưởng quà sinh nhật cho bạn trai ',
+      slug: '10-y-tuong-qua-sinh-nhat-cho-ban-trai',
+      excerpt: 'Gợi ý món quà sinh nhật khiến anh ấy bất ngờ và hạnh phúc!',
       content: `
-        <h2>Phương pháp Montessori là gì?</h2>
-        <p>Montessori là phương pháp giáo dục tập trung vào việc phát triển tự nhiên của trẻ thông qua trải nghiệm thực tế. Phương pháp này được phát triển bởi bác sĩ Maria Montessori vào đầu thế kỷ 20.</p>
+        <h2>Sinh nhật anh ấy sắp đến rồi! </h2>
+        <p>Đừng để đến phút chót mới lo! Đây là 10 ý tưởng quà sinh nhật chắc chắn làm anh ấy thích:</p>
         
-        <h2>Nguyên tắc cơ bản</h2>
+        <h2>1. Đồng hồ thời trang </h2>
+        <p>Luôn là lựa chọn an toàn và sang trọng. Chọn kiểu dáng phù hợp với phong cách của anh ấy.</p>
+        
+        <h2>2. Ví da cao cấp </h2>
+        <p>Thực dụng và tinh tế. Có thể khắc tên hoặc chữ viết tắt để cá nhân hóa.</p>
+        
+        <h2>3. Bộ dưỡng da nam </h2>
+        <p>Giúp anh ấy chăm sóc bản thân. Chọn thương hiệu cho da nam.</p>
+        
+        <h2>4. Tai nghe không dây </h2>
+        <p>Nếu anh ấy yêu âm nhạc hoặc thường xuyên họp online.</p>
+        
+        <h2>5. Bộ cà phê specialty </h2>
+        <p>Cho những tín đồ cà phê. Kèm theo bộ pha cà phê nữa càng tuyệt!</p>
+        
+        <h2>6. Áo thun/Hoodie đẹp </h2>
+        <p>Chọn brand anh ấy yêu thích hoặc thiết kê custom riêng.</p>
+        
+        <h2>7. Nước hoa nam </h2>
+        <p>Mùi hương anh ấy thích, hoặc mùi mà bạn muốn anh ấy dùng.</p>
+        
+        <h2>8. Phụ kiện công nghệ </h2>
+        <p>Sạc dự phòng, đế sạc không dây, case điện thoại đẹp...</p>
+        
+        <h2>9. Voucher trải nghiệm </h2>
+        <p>Massage, du lịch ngắn ngày, hoặc hoạt động anh ấy thích.</p>
+        
+        <h2>10. Hộp quà DearHim </h2>
+        <p>Kết hợp nhiều món nhỏ xinh, thiệp viết tay, ảnh kỷ niệm - Trọn vẹn tâm ý!</p>
+        
+        <h2>Lưu ý quan trọng:</h2>
         <ul>
-          <li><strong>Tự lập:</strong> Trẻ được khuyến khích tự làm và khám phá</li>
-          <li><strong>Môi trường chuẩn bị:</strong> Không gian học tập được thiết kế phù hợp với trẻ</li>
-          <li><strong>Tôn trọng:</strong> Tôn trọng tốc độ phát triển riêng của mỗi bé</li>
-          <li><strong>Thực hành:</strong> Học qua làm và trải nghiệm thực tế</li>
+          <li> Đóng gói đẹp, tạo bất ngờ</li>
+          <li> Đừng quên thiệp viết tay</li>
+          <li> Chụp ảnh để lưu lại khoảnh khắc</li>
+          <li> Trao tận tay với nụ cười thật tươi!</li>
         </ul>
         
-        <h2>Cách chọn đồ chơi Montessori</h2>
-        <p>Khi chọn đồ chơi Montessori cho bé, hãy chú ý:</p>
-        <ol>
-          <li>Chất liệu tự nhiên, an toàn</li>
-          <li>Thiết kế đơn giản, không quá phức tạp</li>
-          <li>Kích thích giác quan và tư duy</li>
-          <li>Phù hợp với độ tuổi và khả năng của bé</li>
-        </ol>
-        
-        <h2>Đồ chơi Grella - Lựa chọn hoàn hảo</h2>
-        <p>Grella tạo ra đồ chơi từ bã cà phê tái chế, kết hợp hoàn hảo giữa thân thiện môi trường và phương pháp Montessori. Mỗi sản phẩm được thiết kế để phát triển kỹ năng cụ thể cho bé.</p>
+        <p><strong>Món quà nào cũng đẹp, miễn là từ trái tim bạn! </strong></p>
       `,
-      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80',
-      category: 'Giáo dục',
-      tags: ['Montessori', 'Phụ huynh', 'Giáo dục'],
-      readTime: 5
-    },
-    {
-      title: 'Tại sao chọn đồ chơi từ bã cà phê?',
-      slug: 'tai-sao-chon-do-choi-tu-ba-ca-phe',
-      excerpt: 'Lợi ích môi trường và giáo dục khi tái chế bã cà phê.',
-      content: `
-        <h2>Vấn đề rác thải bã cà phê</h2>
-        <p>Mỗi năm, hàng triệu tấn bã cà phê bị vứt bỏ, gây ô nhiễm môi trường. Grella biến "rác thải" này thành tài nguyên quý giá.</p>
-        
-        <h2>Quy trình tái chế của Grella</h2>
-        <ol>
-          <li><strong>Thu gom:</strong> Bã cà phê được thu gom từ các quán cà phê địa phương</li>
-          <li><strong>Xử lý:</strong> Làm sạch, khử mùi và sấy khô hoàn toàn</li>
-          <li><strong>Gia công:</strong> Kết hợp với keo sinh học an toàn</li>
-          <li><strong>Tạo hình:</strong> Đúc khuôn thành các chi tiết đồ chơi</li>
-          <li><strong>Hoàn thiện:</strong> Kiểm tra chất lượng và đóng gói thân thiện môi trường</li>
-        </ol>
-        
-        <h2>Lợi ích cho bé</h2>
-        <ul>
-          <li>An toàn tuyệt đối, không chứa hóa chất độc hại</li>
-          <li>Kết cấu tự nhiên, kích thích xúc giác</li>
-          <li>Bền vững và thân thiện môi trường</li>
-          <li>Dạy bé về tái chế và bảo vệ môi trường</li>
-        </ul>
-        
-        <h2>Cam kết của Grella</h2>
-        <p>Chúng tôi cam kết 100% sản phẩm được làm từ vật liệu tái chế, an toàn cho trẻ và thân thiện với môi trường. Mỗi món đồ chơi Grella là một bước nhỏ hướng tới tương lai xanh hơn.</p>
-      `,
-      image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80',
-      category: 'Môi trường',
-      tags: ['Tái chế', 'Bã cà phê', 'Môi trường'],
+      image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=800&q=80',
+      category: 'Ý tưởng',
+      tags: ['Sinh nhật', 'Bạn trai', 'Ý tưởng'],
       readTime: 6
     },
     {
-      title: 'Hướng dẫn vệ sinh đồ chơi',
-      slug: 'huong-dan-ve-sinh-do-choi',
-      excerpt: 'Cách bảo quản đồ chơi Grella để bền lâu.',
+      title: 'Quà kỷ niệm - Làm sao cho ý nghĩa?',
+      slug: 'qua-ky-niem-lam-sao-cho-y-nghia',
+      excerpt: 'Bí quyết chọn quà kỷ niệm chạm đến trái tim anh ấy.',
       content: `
-        <h2>Tại sao cần vệ sinh đồ chơi?</h2>
-        <p>Đồ chơi là vật dụng bé tiếp xúc hàng ngày. Vệ sinh đúng cách giúp bảo vệ sức khỏe bé và kéo dài tuổi thọ đồ chơi.</p>
+        <h2>Kỷ niệm đáng nhớ cần món quà đặc biệt</h2>
+        <p>Ngày kỷ niệm không chỉ là một ngày bình thường. Đó là lúc bạn nhắc anh ấy nhớ về những khoảnh khắc đẹp nhất!</p>
         
-        <h2>Cách vệ sinh đồ chơi Grella</h2>
-        
-        <h3>Vệ sinh hàng ngày</h3>
+        <h2>Những dịp kỷ niệm đặc biệt:</h2>
         <ul>
-          <li>Dùng khăn mềm, ẩm lau nhẹ bề mặt</li>
-          <li>Tránh ngâm nước hoặc rửa trực tiếp</li>
-          <li>Để khô tự nhiên ở nơi thoáng mát</li>
+          <li>Kỷ niệm ngày yêu nhau</li>
+          <li>Kỷ niệm ngày cầu hôn</li>
+          <li>Kỷ niệm ngày quen biết</li>
+          <li>Kỷ niệm ngày cưới (cho các cặp đã kết hôn)</li>
         </ul>
         
-        <h3>Vệ sinh sâu (1 lần/tuần)</h3>
-        <ol>
-          <li>Pha dung dịch nước ấm + vài giọt xà phòng nhẹ</li>
-          <li>Dùng khăn mềm thấm dung dịch, vắt khô</li>
-          <li>Lau nhẹ nhàng từng chi tiết</li>
-          <li>Lau lại bằng khăn ẩm sạch</li>
-          <li>Lau khô và phơi nơi thoáng mát</li>
-        </ol>
+        <h2>Món quà kỷ niệm nên có gì?</h2>
         
-        <h2>Lưu ý quan trọng</h2>
-        <div class="warning">
-          <p><strong>KHÔNG nên:</strong></p>
-          <ul>
-            <li>Ngâm nước hoặc rửa dưới vòi</li>
-            <li>Dùng chất tẩy rửa mạnh</li>
-            <li>Phơi trực tiếp dưới nắng gắt</li>
-            <li>Sử dụng máy rửa bát/máy giặt</li>
-          </ul>
-        </div>
-        
-        <h2>Bảo quản đúng cách</h2>
+        <h3>1. Yếu tố "chúng ta"</h3>
+        <p>Món quà cần gắn liền với cả hai người:</p>
         <ul>
-          <li>Cất trong hộp hoặc túi vải khi không dùng</li>
-          <li>Tránh nơi ẩm ướt, nhiệt độ cao</li>
-          <li>Kiểm tra định kỳ, loại bỏ chi tiết hỏng</li>
+          <li>Album ảnh kỷ niệm từ lúc yêu đến giờ</li>
+          <li>Khung ảnh với tấm ảnh đẹp nhất</li>
+          <li>Đồ đôi tinh tế (đồng hồ, vòng, nhẫn...)</li>
         </ul>
         
-        <p>Với cách bảo quản đúng, đồ chơi Grella có thể sử dụng lâu dài, thậm chí truyền lại cho em bé khác!</p>
+        <h3>2. Thông điệp tình cảm</h3>
+        <p>Lời nhắn chân thành từ trái tim:</p>
+        <ul>
+          <li>Viết thư tay dài kể về cảm xúc</li>
+          <li>Ghi lại 100 lý do yêu anh ấy</li>
+          <li>Video montage những khoảnh khắc đẹp</li>
+        </ul>
+        
+        <h3>3. Sự bất ngờ</h3>
+        <p>Tạo khoảnh khắc anh ấy không ngờ tới:</p>
+        <ul>
+          <li>Tổ chức tiệc nhỏ với bạn bè</li>
+          <li>Đưa anh ấy đi nơi đầu tiên gặp nhau</li>
+          <li>Chuẩn bị bữa tối lãng mạn tại nhà</li>
+        </ul>
+        
+        <h2>Ý tưởng quà kỷ niệm cụ thể:</h2>
+        
+        <h3>Cho năm đầu tiên 1️⃣:</h3>
+        <p>Hộp quà nhỏ xinh với ảnh, thiệp tay và món quà anh ấy thích.</p>
+        
+        <h3>Cho 2-3 năm:</h3>
+        <p>Du lịch ngắn ngày, trải nghiệm mới cùng nhau.</p>
+        
+        <h3>Cho 5 năm trở lên:</h3>
+        <p>Món quà giá trị hơn: đồng hồ, trang sức, hoặc đồ công nghệ cao cấp.</p>
+        
+        <h2>DearHim - Hộp quà kỷ niệm hoàn hảo</h2>
+        <p>DearHim giúp bạn tạo hộp quà kỷ niệm với:</p>
+        <ul>
+          <li>Ảnh in chất lượng cao của hai người</li>
+          <li>Thiệp viết tay thật tình cảm</li>
+          <li>Món quà anh ấy yêu thích</li>
+          <li>Đóng gói sang trọng, tinh tế</li>
+        </ul>
+        
+        <p><strong>Kỷ niệm đẹp cần được ghi nhận - Hãy trao anh ấy món quà từ trái tim!</strong></p>
       `,
-      image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80',
-      category: 'Hướng dẫn',
-      tags: ['Vệ sinh', 'Bảo quản', 'Hướng dẫn'],
-      readTime: 4
-    },
-    {
-      title: 'Đồ chơi Montessori cho trẻ 0-3 tuổi',
-      slug: 'do-choi-montessori-cho-tre-0-3-tuoi',
-      excerpt: 'Gợi ý các loại đồ chơi Montessori phù hợp cho giai đoạn phát triển quan trọng nhất.',
-      content: `
-        <h2>Giai đoạn 0-3 tuổi - Nền tảng phát triển</h2>
-        <p>Từ 0-3 tuổi là giai đoạn vàng trong sự phát triển não bộ của trẻ. Đây là lúc bé hấp thụ mọi thứ xung quanh như một "chiếc bọt biển". Việc chọn đúng đồ chơi sẽ giúp kích thích tối đa khả năng học hỏi tự nhiên của bé.</p>
-        
-        <h2>0-6 tháng: Kích thích giác quan</h2>
-        <ul>
-          <li><strong>Mobile treo nôi:</strong> Màu sắc tương phản cao, chuyển động nhẹ nhàng</li>
-          <li><strong>Gương an toàn:</strong> Giúp bé nhận diện bản thân</li>
-          <li><strong>Xúc xắc mềm:</strong> Kích thích xúc giác và thính giác</li>
-        </ul>
-        
-        <h2>6-12 tháng: Khám phá và vận động</h2>
-        <ul>
-          <li><strong>Khối gỗ lớn:</strong> Dễ cầm nắm, an toàn khi bé đưa vào miệng</li>
-          <li><strong>Hộp thả hình:</strong> Phát triển nhận thức không gian</li>
-          <li><strong>Bóng mềm:</strong> Khuyến khích bé bò, lăn</li>
-        </ul>
-        
-        <h2>1-2 tuổi: Tự lập và khám phá</h2>
-        <ul>
-          <li><strong>Tháp xếp chồng:</strong> Phát triển vận động tinh và logic</li>
-          <li><strong>Đồ chơi kéo/đẩy:</strong> Hỗ trợ kỹ năng đi lại</li>
-          <li><strong>Ghép hình đơn giản:</strong> 3-5 mảnh lớn</li>
-        </ul>
-        
-        <h2>2-3 tuổi: Sáng tạo và tư duy</h2>
-        <ul>
-          <li><strong>Đồ chơi xếp hình phức tạp:</strong> Khối gỗ nhiều hình dạng</li>
-          <li><strong>Bộ đồ chơi vai trò:</strong> Nhà bếp, bác sĩ, thợ xây</li>
-          <li><strong>Tranh ghép 10-20 mảnh:</strong> Phát triển kiên nhẫn</li>
-        </ul>
-        
-        <h2>Lưu ý khi chọn đồ chơi</h2>
-        <ul>
-          <li>✓ Chọn vật liệu tự nhiên, an toàn (gỗ, vải, bã cà phê)</li>
-          <li>✓ Tránh đồ chơi quá phức tạp, nhiều âm thanh chói tai</li>
-          <li>✓ Ưu tiên đồ chơi mở (open-ended) - có nhiều cách chơi</li>
-          <li>✓ Quan sát sở thích và giai đoạn phát triển của bé</li>
-        </ul>
-        
-        <p>Tất cả sản phẩm Grella đều được thiết kế phù hợp với từng giai đoạn phát triển, làm từ bã cà phê tái chế an toàn tuyệt đối.</p>
-      `,
-      image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80',
-      category: 'Giáo dục',
-      tags: ['Montessori', '0-3 tuổi', 'Phát triển'],
+      image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80',
+      category: 'Ý tưởng',
+      tags: ['Kỷ niệm', 'Ý nghĩa', 'Tình yêu'],
       readTime: 7
     },
     {
-      title: 'Lợi ích của đồ chơi từ vật liệu tự nhiên',
-      slug: 'loi-ich-cua-do-choi-tu-vat-lieu-tu-nhien',
-      excerpt: 'Tại sao nên chọn đồ chơi gỗ và vật liệu sinh học thay vì nhựa?',
+      title: 'Quà tặng bố - Món quà cho người hùng',
+      slug: 'qua-tang-bo-mon-qua-cho-nguoi-hung',
+      excerpt: 'Gợi ý quà tặng thể hiện lòng biết ơn với bố.',
       content: `
-        <h2>Xu hướng quay về tự nhiên</h2>
-        <p>Trong thời đại công nghệ và nhựa tràn lan, ngày càng nhiều phụ huynh quan tâm đến việc chọn đồ chơi từ vật liệu tự nhiên cho con. Đây không chỉ là xu hướng mà còn là lựa chọn thông minh cho sức khỏe bé và môi trường.</p>
+        <h2>Bố - Người đàn ông quan trọng nhất</h2>
+        <p>Bố là người đàn ông đầu tiên trong cuộc đời mỗi người. Nhưng thường thì chúng ta không biết tặng bố gì cho hợp...</p>
         
-        <h2>Lợi ích cho sức khỏe bé</h2>
-        <h3>1. An toàn tuyệt đối</h3>
+        <h2>Tặng quà bố vào dịp nào?</h2>
         <ul>
-          <li>Không chứa BPA, phthalates, PVC thường có trong nhựa</li>
-          <li>Không gây dị ứng, ít kích ứng da</li>
-          <li>An toàn khi bé đưa vào miệng</li>
+          <li>Sinh nhật bố</li>
+          <li>Ngày của Cha</li>
+          <li>Tết, Lễ lớn</li>
+          <li>Bất cứ khi nào bạn muốn!</li>
         </ul>
         
-        <h3>2. Kích thích giác quan tốt hơn</h3>
+        <h2>Bố thường thích gì?</h2>
+        
+        <h3>1. Đồ thực dụng</h3>
+        <p>Bố thường ít khi mua sắm cho bản thân:</p>
         <ul>
-          <li>Kết cấu tự nhiên: Gỗ, bã cà phê có bề mặt ấm áp</li>
-          <li>Trọng lượng thực: Giúp bé cảm nhận trọng lực</li>
-          <li>Mùi tự nhiên: Không có mùi hóa chất</li>
+          <li>Áo sơ mi, polo chất lượng</li>
+          <li>Ví da bò thật</li>
+          <li>Dây nịt da</li>
+          <li>Giày da lịch sự</li>
         </ul>
         
-        <h2>Lợi ích cho phát triển trí tuệ</h2>
-        <h3>3. Khuyến khích tưởng tượng</h3>
-        <p>Đồ chơi tự nhiên thường có thiết kế đơn giản, không có âm thanh hay đèn nhấp nháy. Điều này buộc bé phải sử dụng trí tưởng tượng để tạo ra câu chuyện và cách chơi riêng.</p>
-        
-        <h3>4. Tập trung tốt hơn</h3>
-        <p>Không bị phân tâm bởi âm thanh, đèn LED, bé có thể tập trung sâu hơn vào hoạt động chơi.</p>
-        
-        <h2>Lợi ích cho môi trường</h2>
-        <h3>5. Bền vững và có thể tái chế</h3>
+        <h3>2. Sức khỏe</h3>
+        <p>Bố đang già đi, cần chăm sóc sức khỏe:</p>
         <ul>
-          <li>Phân hủy sinh học: Gỗ, bã cà phê có thể phân hủy tự nhiên</li>
-          <li>Giảm rác thải nhựa: Nhựa mất hàng trăm năm mới phân hủy</li>
-          <li>Sản xuất thân thiện: Ít tiêu tốn năng lượng</li>
+          <li>Máy đo huyết áp</li>
+          <li>Thực phẩm chức năng</li>
+          <li>Đồ tập thể dục</li>
+          <li>Voucher massage, spa</li>
         </ul>
         
-        <h3>6. Bền lâu, dùng được nhiều thế hệ</h3>
-        <p>Đồ chơi gỗ và vật liệu tự nhiên chất lượng cao có thể sử dụng hàng chục năm, truyền lại cho em bé khác hoặc thế hệ sau.</p>
+        <h3>3. Sở thích riêng</h3>
+        <p>Bố bạn thích gì?</p>
+        <ul>
+          <li>Golf → Gậy, bóng, phụ kiện golf</li>
+          <li>Câu cá → Cần câu, phụ kiện</li>
+          <li>Đọc sách → Sách hay, Kindle</li>
+          <li>Âm nhạc → Loa, tai nghe</li>
+        </ul>
         
-        <h2>Grella - Đồ chơi từ bã cà phê</h2>
-        <p>Grella kết hợp ưu điểm của vật liệu tự nhiên với công nghệ tái chế hiện đại. Mỗi sản phẩm không chỉ an toàn cho bé mà còn góp phần giảm rác thải bã cà phê.</p>
+        <h2>Món quà tinh thần</h2>
+        <p>Đôi khi bố cần lời nói yêu thương hơn là quà:</p>
+        <ul>
+          <li>Viết thư cảm ơn bố</li>
+          <li>Dành thời gian ăn tối cùng bố</li>
+          <li>Chụp ảnh gia đình</li>
+          <li>Kể cho bố nghe về cuộc sống</li>
+        </ul>
         
-        <p><strong>Chọn vật liệu tự nhiên = Chọn tương lai xanh cho con!</strong></p>
+        <h2>Gợi ý cụ thể theo ngân sách:</h2>
+        
+        <h3>Dưới 500k:</h3>
+        <p>Áo polo, ví nhỏ, thắt lưng, nước hoa</p>
+        
+        <h3>500k - 1tr:</h3>
+        <p>Đồng hồ đẹp, giày da, túi đựng laptop</p>
+        
+        <h3>Trên 1tr:</h3>
+        <p>Điện thoại, máy tính bảng, đồng hồ cao cấp</p>
+        
+        <h2>Hộp quà DearHim cho bố</h2>
+        <p>DearHim có hộp quà đặc biệt cho bố với:</p>
+        <ul>
+          <li>Quà chọn lọc theo sở thích bố</li>
+          <li>Thiệp viết tay của con</li>
+          <li>Ảnh gia đình đẹp</li>
+          <li>Tất cả đóng gói tinh tế</li>
+        </ul>
+        
+        <p><strong>Bố không cần quà đắt tiền - Bố chỉ cần tình yêu thương của con!</strong></p>
       `,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
-      category: 'Môi trường',
-      tags: ['Vật liệu tự nhiên', 'An toàn', 'Môi trường'],
+      image: 'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?auto=format&fit=crop&w=800&q=80',
+      category: 'Gia đình',
+      tags: ['Bố', 'Gia đình', 'Ngày của Cha'],
       readTime: 6
     },
     {
-      title: '10 hoạt động Montessori tại nhà',
-      slug: '10-hoat-dong-montessori-tai-nha',
-      excerpt: 'Các hoạt động đơn giản giúp bé học qua chơi ngay tại nhà.',
+      title: 'Cách viết thiệp tay chạm đến trái tim',
+      slug: 'cach-viet-thiep-tay-cham-den-trai-tim',
+      excerpt: 'Bí quyết viết lời nhắn khiến anh ấy xúc động.',
       content: `
-        <h2>Montessori tại nhà - Dễ hơn bạn nghĩ!</h2>
-        <p>Bạn không cần phòng học chuyên dụng hay đồ chơi đắt tiền để áp dụng Montessori. Dưới đây là 10 hoạt động đơn giản bạn có thể làm ngay tại nhà.</p>
+        <h2>Sức mạnh của lời viết tay</h2>
+        <p>Trong thời đại digital, một tấm thiệp viết tay trở nên <strong>vô cùng quý giá</strong>. Nó cho thấy bạn đã dành thời gian và tâm huyết thật sự.</p>
         
-        <h2>1. Chuyển đậu/hạt bằng thìa</h2>
-        <p><strong>Độ tuổi:</strong> 2-4 tuổi</p>
-        <p><strong>Chuẩn bị:</strong> 2 bát nhỏ, 1 thìa, đậu/hạt gạo</p>
-        <p>Cho bé dùng thìa chuyển đậu từ bát này sang bát kia. Phát triển vận động tinh và sự tập trung.</p>
-        
-        <h2>2. Rót nước</h2>
-        <p><strong>Độ tuổi:</strong> 2.5-5 tuổi</p>
-        <p>Cho bé rót nước từ cốc này sang cốc kia. Dạy bé kiểm soát vận động và chịu trách nhiệm.</p>
-        
-        <h2>3. Ghép màu sắc</h2>
-        <p><strong>Độ tuổi:</strong> 1.5-3 tuổi</p>
-        <p>Cho bé nhóm các vật dụng cùng màu lại với nhau. Phát triển nhận biết màu sắc và tư duy logic.</p>
-        
-        <h2>4. Cắt giấy</h2>
-        <p><strong>Độ tuổi:</strong> 3-5 tuổi</p>
-        <p>Cho bé tập cắt theo đường thẳng, sau đó là đường cong. Chuẩn bị cho việc viết.</p>
-        
-        <h2>5. Xếp theo kích thước</h2>
-        <p><strong>Độ tuổi:</strong> 2-4 tuổi</p>
-        <p>Cho bé sắp xếp vật dụng từ nhỏ đến lớn. Phát triển tư duy toán học.</p>
-        
-        <h2>6. Bóc vỏ trứng luộc</h2>
-        <p><strong>Độ tuổi:</strong> 2.5-5 tuổi</p>
-        <p>Cho bé tập bóc vỏ trứng. Phát triển kiên nhẫn và kỹ năng sống.</p>
-        
-        <h2>7. Khay cát viết chữ</h2>
-        <p><strong>Độ tuổi:</strong> 3-5 tuổi</p>
-        <p>Cho bé dùng ngón tay vẽ hình, viết chữ trên cát. Chuẩn bị cho việc viết.</p>
-        
-        <h2>8. Gấp khăn/quần áo</h2>
-        <p><strong>Độ tuổi:</strong> 3-6 tuổi</p>
-        <p>Dạy bé cách gấp khăn, quần áo đơn giản. Phát triển tự lập và trách nhiệm.</p>
-        
-        <h2>9. Đếm và phân loại</h2>
-        <p><strong>Độ tuổi:</strong> 3-5 tuổi</p>
-        <p>Cho bé đếm và phân loại vật dụng theo màu, kích thước. Toán học sơ đẳng.</p>
-        
-        <h2>10. Chăm sóc cây</h2>
-        <p><strong>Độ tuổi:</strong> 2-6 tuổi</p>
-        <p>Cho bé tưới nước, lau lá cây. Phát triển trách nhiệm và hiểu về thiên nhiên.</p>
-        
-        <h2>Nguyên tắc khi thực hiện</h2>
+        <h2>Tại sao phải viết tay?</h2>
         <ul>
-          <li>✓ Chuẩn bị môi trường: Mọi thứ ở tầm với của bé</li>
-          <li>✓ Thị phạm chậm rãi: Làm mẫu từng bước</li>
-          <li>✓ Để bé tự làm: Không can thiệp trừ khi cần</li>
-          <li>✓ Chấp nhận sai lầm: Sai lầm là cơ hội học hỏi</li>
-          <li>✓ Khen ngợi nỗ lực: Không phải kết quả</li>
+          <li>Chân thành, chạm đến cảm xúc</li>
+          <li>Cho thấy bạn đã dành thời gian</li>
+          <li>Có thể giữ lại mãi mãi</li>
+          <li>Làm món quà thêm ý nghĩa</li>
         </ul>
         
-        <p><strong>Montessori không cần phức tạp - chỉ cần sự kiên nhẫn và tôn trọng bé!</strong></p>
+        <h2>Cấu trúc một tấm thiệp hay:</h2>
+        
+        <h3>1. Lời mở đầu (Dear... / Gửi...)</h3>
+        <p>Gọi tên một cách trìu mến:</p>
+        <ul>
+          <li>\"Gửi anh yêu của em,\"</li>
+          <li>\"Gửi người đàn ông em yêu,\"</li>
+          <li>\"Dear my love,\"</li>
+        </ul>
+        
+        <h3>2. Nội dung chính</h3>
+        <p>Nói lên điều bạn muốn:</p>
+        <ul>
+          <li>Cảm ơn anh ấy vì điều gì</li>
+          <li>Kể lại kỷ niệm đẹp</li>
+          <li>Nói lên cảm xúc của bạn</li>
+          <li>Ước nguyện cho tương lai</li>
+        </ul>
+        
+        <h3>3. Lời kết</h3>
+        <p>Kết thúc thật ngọt ngào:</p>
+        <ul>
+          <li>\"Yêu anh nhiều lắm!\"</li>
+          <li>\"Forever yours\"</li>
+          <li>\"Love you to the moon and back\"</li>
+        </ul>
+        
+        <h2>Ví dụ cụ thể:</h2>
+        
+        <h3>Thiệp sinh nhật:</h3>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Gửi anh yêu,<br><br>
+        Chúc mừng sinh nhật người đàn ông tuyệt vời nhất! Cảm ơn anh vì đã luôn bên em, động viên em mỗi ngày. Em mong anh sẽ luôn khỏe mạnh, hạnh phúc, và đạt được mọi ước mơ.<br><br>
+        Yêu anh rất nhiều!<br>
+        Em của anh\"
+        </p>
+        
+        <h3>Thiệp kỷ niệm:</h3>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Anh yêu,<br><br>
+        2 năm bên nhau thật nhanh nhỉ? Em vẫn nhớ như in ngày đầu tiên gặp anh. Từ một anh trai lạ lẫm, giờ anh đã là tất cả của em. Cảm ơn anh vì tất cả những gì anh đã làm cho em.<br><br>
+        Mong chúng ta sẽ luôn bên nhau như thế này!<br>
+        Em yêu anh\"
+        </p>
+        
+        <h2>Mẹo nhỏ khi viết:</h2>
+        <ul>
+          <li>Viết từ trái tim, đừng copy paste</li>
+          <li>Kể chuyện riêng của hai người</li>
+          <li>Dùng bút đẹp, viết thật tay</li>
+          <li>Nếu viết sai, viết lại - đừng xóa</li>
+          <li>Có thể vẽ thêm hình nhỏ xinh</li>
+        </ul>
+        
+        <h2>Điều KHÔNG nên làm:</h2>
+        <ul>
+          <li>Viết cho có,敷衍了事</li>
+          <li>Copy từ internet</li>
+          <li>Viết quá chung chung</li>
+          <li>In ra thay vì viết tay</li>
+        </ul>
+        
+        <h2>DearHim - Thiệp viết tay kèm trong mỗi hộp quà</h2>
+        <p>Mỗi hộp quà DearHim đều có tấm thiệp viết tay từ bạn, được chúng tôi viết đẹp theo lời bạn muốn gửi!</p>
+        
+        <p><strong>Lời viết tay luôn chạm đến trái tim hơn tin nhắn!</strong></p>
       `,
-      image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80',
-      category: 'Giáo dục',
-      tags: ['Montessori', 'Hoạt động', 'Tại nhà'],
-      readTime: 8
+      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80',
+      category: 'Hướng dẫn',
+      tags: ['Thiệp tay', 'Viết lời', 'Cảm xúc'],
+      readTime: 5
+    },
+    {
+      title: 'Quà Tết cho người yêu - Ý tưởng hay 2025',
+      slug: 'qua-tet-cho-nguoi-yeu-y-tuong-hay',
+      excerpt: 'Gợi ý quà Tết độc đáo khiến anh ấy nhớ mãi.',
+      content: `
+        <h2>Tết - Dịp tặng quà đặc biệt</h2>
+        <p>Tết không chỉ là dịp sum họp gia đình mà còn là lúc thể hiện tình cảm với người yêu. Vậy nên tặng gì cho anh ấy đây?</p>
+        
+        <h2>Ý tưởng quà Tết truyền thống:</h2>
+        
+        <h3>1. Áo dài cặp</h3>
+        <p>Mặc áo dài đi chúc Tết rất đẹp! Chọn màu sắc hợp với cả hai.</p>
+        
+        <h3>2. Rượu cao cấp</h3>
+        <p>Nếu anh ấy uống rượu, tặng chai rượu tốt để anh ấy nhâm nhi dịp Tết.</p>
+        
+        <h3>3. Trà ngon</h3>
+        <p>Bộ trà cao cấp cho anh ấy thưởng thức hoặc biếu bố mẹ.</p>
+        
+        <h3>4. Bánh kẹo đặc biệt</h3>
+        <p>Hộp bánh kẹo cao cấp, đóng gói đẹp.</p>
+        
+        <h2>Ý tưởng quà Tết hiện đại:</h2>
+        
+        <h3>5. Đồ điện tử mới</h3>
+        <p>AirPods, smart watch, hoặc gadget công nghệ anh ấy thích.</p>
+        
+        <h3>6. Quần áo mới</h3>
+        <p>Set đồ mới sành điệu cho năm mới, năm mới diện đồ mới!</p>
+        
+        <h3>7. Giày/Dép cao cấp</h3>
+        <p>Đôi giày/dép anh ấy đang muốn nhưng chưa mua.</p>
+        
+        <h3>8. Thẻ quà tặng</h3>
+        <p>Voucher từ shop anh ấy yêu thích để anh ấy tự chọn.</p>
+        
+        <h2>Ý tưởng quà Tết sáng tạo:</h2>
+        
+        <h3>9. Du lịch ngắn ngày</h3>
+        <p>Đặt tour đi chơi sau Tết - kỷ niệm đầu năm!</p>
+        
+        <h3>10. Hộp quà tự tay làm</h3>
+        <p>Ghép nhiều món nhỏ anh ấy thích + thiệp Tết tự viết.</p>
+        
+        <h2>Đặc biệt: Hộp quà Tết DearHim</h2>
+        <p>DearHim có hộp quà Tết đặc biệt với:</p>
+        <ul>
+          <li>Quà chọn lọc cao cấp</li>
+          <li>Thiệp Tết viết tay</li>
+          <li>Ảnh kỷ niệm đẹp</li>
+          <li>Đóng gói màu đỏ may mắn</li>
+          <li>Hoa trang trí tết</li>
+        </ul>
+        
+        <h2>Lưu ý khi chọn quà Tết:</h2>
+        <ul>
+          <li>Màu đỏ, vàng mang ý nghĩa tốt lành</li>
+          <li>Đừng quá tiết kiệm - Tết năm mới mà!</li>
+          <li>Đóng gói đẹp, có túi xách sang</li>
+          <li>Kèm lời chúc tết ngọt ngào</li>
+        </ul>
+        
+        <h2>Lời chúc Tết cho anh ấy:</h2>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Anh yêu,<br><br>
+        Chúc anh năm mới an khang thịnh vượng, luôn khỏe mạnh và thành công! Em mong năm mới này chúng ta sẽ có thêm nhiều kỷ niệm đẹp bên nhau.<br><br>
+        Yêu anh!\"
+        </p>
+        
+        <p><strong>Tết đến - Hãy tặng anh ấy món quà thật ý nghĩa!</strong></p>
+      `,
+      image: 'https://images.unsplash.com/photo-1543086123-36a57732f66a?auto=format&fit=crop&w=800&q=80',
+      category: 'Dịp đặc biệt',
+      tags: ['Tết', 'Năm mới', 'Ý tưởng'],
+      readTime: 6
+    },
+    {
+      title: 'Lời cảm ơn đẹp nhất dành cho "anh ấy"',
+      slug: 'loi-cam-on-dep-nhat-danh-cho-anh-ay',
+      excerpt: 'Những cách nói cảm ơn chân thành và ý nghĩa.',
+      content: `
+        <h2>Đàn ông cũng cần được cảm ơn</h2>
+        <p>Đàn ông thường ít thể hiện cảm xúc, nhưng họ cũng cần được ghi nhận và cảm ơn. Đừng nghĩ là họ làm mọi  việc lý đương nhiên nhé!</p>
+        
+        <h2>Nên cảm ơn "anh ấy" vì những gì?</h2>
+        
+        <h3>Vì sự bảo vệ</h3>
+        <p>\"Cảm ơn anh vì luôn là chỗ dựa vững chắc của em\"</p>
+        
+        <h3>Vì tình yêu thương</h3>
+        <p>\"Cảm ơn anh vì đã yêu em với tất cả trái tim\"</p>
+        
+        <h3>Vì sự hỗ trợ</h3>
+        <p>\"Cảm ơn anh vì luôn ủng hộ ước mơ của em\"</p>
+        
+        <h3>Vì sự kiên nhẫn</h3>
+        <p>\"Cảm ơn anh vì đã chịu đựng lúc em không vui\"</p>
+        
+        <h3>Vì sự nỗ lực</h3>
+        <p>\"Cảm ơn anh vì luôn cố gắng vì chúng ta\"</p>
+        
+        <h2>Cách nói cảm ơn ý nghĩa:</h2>
+        
+        <h3>1. Nói trực tiếp</h3>
+        <p>Nhìn vào mắt anh ấy và nói \"Anh biết không, em thật sự cảm ơn anh vì...\"</p>
+        
+        <h3>2. Viết thư tay</h3>
+        <p>Viết một lá thư cảm ơn dài, kể lại những điều anh ấy đã làm cho mình.</p>
+        
+        <h3>3. Hành động thay lời nói</h3>
+        <p>Làm điều gì đó đặc biệt cho anh ấy:</p>
+        <ul>
+          <li>Nấu món anh ấy thích</li>
+          <li>Massage cho anh ấy sau ngày làm việc</li>
+          <li>Tặng món quà anh ấy muốn</li>
+        </ul>
+        
+        <h3>4. Chia sẻ công khai</h3>
+        <p>Post lên social media về anh ấy (nếu anh ấy OK với điều này).</p>
+        
+        <h2>Mẫu lời cảm ơn cụ thể:</h2>
+        
+        <h3>Cảm ơn người yêu:</h3>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Anh yêu,<br><br>
+        Em muốn nói với anh rằng, em thật sự biết ơn vì có anh. Cảm ơn anh vì đã luôn bên em, kiên nhẫn với em khi em làm bậy, và yêu em với tất cả ưu nhược điểm. Có anh, cuộc sống em ý nghĩa hơn rất nhiều.<br><br>
+        Yêu và cảm ơn anh nhiều lắm!\"
+        </p>
+        
+        <h3>Cảm ơn bố:</h3>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Bố thân yêu,<br><br>
+        Con muốn nói với bố rằng, tất cả những gì con có hôm nay đều nhờ bố. Cảm ơn bố vì đã nuôi con khôn lớn, dạy con làm người, và luôn tin tưởng con. Bố là người hùng của con!<br><br>
+        Yêu bố!\"
+        </p>
+        
+        <h3>Cảm ơn anh trai:</h3>
+        <p style="font-style: italic; padding: 15px; background: #f8f8f8; border-left: 3px solid #d4af37;">
+        \"Anh trai,<br><br>
+        Cảm ơン anh vì đã luôn bảo vệ em, giúp đỡ em, và là người em có thể tin tưởng. Dù anh hay trêu chọc em, nhưng em biết anh yêu em. Em cũng yêu anh!<br><br>
+        Thanks bro!\"
+        </p>
+        
+        <h2>Món quà cảm ơn từ DearHim</h2>
+        <p>Hộp quà \"Thank You\" từ DearHim với:</p>
+        <ul>
+          <li>Thiệp cảm ơn viết tay chạm tim</li>
+          <li>Quà anh ấy thích</li>
+          <li>Ảnh kỷ niệm đẹp</li>
+          <li>Đóng gói sang trọng</li>
+        </ul>
+        
+        <p><strong>Đừng ngại nói cảm ơn - Đó là món quà tinh thần tuyệt vời nhất!</strong></p>
+      `,
+      image: 'https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&w=800&q=80',
+      category: 'Tình cảm',
+      tags: ['Cảm ơn', 'Tình cảm', 'Ghi nhận'],
+      readTime: 7
     }
   ];
-  
+
   await Blog.insertMany(blogs);
-  console.log('✅ Seeded 7 blog posts successfully!');
+  console.log('Seeded 7 gift-themed blog posts for DearHim!');
   process.exit();
 }
 

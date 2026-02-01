@@ -24,20 +24,20 @@ export default function Profile() {
     api.get('/auth/me', {
       headers: { Authorization: `Bearer ${token}` }
     })
-    .then(r => {
-      setUser(r.data);
-      setEditForm({
-        name: r.data.name || '',
-        phone: r.data.phone || '',
-        address: r.data.address || ''
+      .then(r => {
+        setUser(r.data);
+        setEditForm({
+          name: r.data.name || '',
+          phone: r.data.phone || '',
+          address: r.data.address || ''
+        });
+        setLoading(false);
+      })
+      .catch(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        navigate('/login');
       });
-      setLoading(false);
-    })
-    .catch(() => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      navigate('/login');
-    });
 
     // Get orders
     api.get('/orders')
@@ -69,7 +69,7 @@ export default function Profile() {
   if (loading) {
     return (
       <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA]'>
-        <motion.div 
+        <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           className='w-12 h-12 border-4 border-[#704214] border-t-transparent rounded-full'
@@ -144,19 +144,17 @@ export default function Profile() {
                   <div className='flex gap-2'>
                     <button
                       onClick={() => setActiveTab('info')}
-                      className={`flex-1 py-3 rounded-xl font-medium transition ${
-                        activeTab === 'info' ? 'bg-[#A8E6CF] text-[#225544]' : 'text-gray-600 hover:bg-gray-100'
-                      }`}
+                      className={`flex-1 py-3 rounded-xl font-medium transition ${activeTab === 'info' ? 'bg-[#A8E6CF] text-[#225544]' : 'text-gray-600 hover:bg-gray-100'
+                        }`}
                     >
                       📋 Thông tin
                     </button>
                     <button
                       onClick={() => setActiveTab('orders')}
-                      className={`flex-1 py-3 rounded-xl font-medium transition ${
-                        activeTab === 'orders' ? 'bg-[#A8E6CF] text-[#225544]' : 'text-gray-600 hover:bg-gray-100'
-                      }`}
+                      className={`flex-1 py-3 rounded-xl font-medium transition ${activeTab === 'orders' ? 'bg-[#A8E6CF] text-[#225544]' : 'text-gray-600 hover:bg-gray-100'
+                        }`}
                     >
-                      📦 Đơn hàng ({orders.length})
+                      Đơn hàng ({orders.length})
                     </button>
                   </div>
                 </div>
@@ -305,19 +303,18 @@ export default function Profile() {
                                   📅 {new Date(order.createdAt).toLocaleString('vi-VN')}
                                 </p>
                               </div>
-                              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                                order.status === 'completed' ? 'bg-green-100 text-green-700' :
+                              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${order.status === 'completed' ? 'bg-green-100 text-green-700' :
                                 order.status === 'shipping' ? 'bg-blue-100 text-blue-700' :
-                                order.status === 'cancelled' ? 'bg-red-100 text-red-700' :
-                                'bg-yellow-100 text-yellow-700'
-                              }`}>
+                                  order.status === 'cancelled' ? 'bg-red-100 text-red-700' :
+                                    'bg-yellow-100 text-yellow-700'
+                                }`}>
                                 {order.status === 'completed' ? '✅ Hoàn thành' :
-                                 order.status === 'shipping' ? '🚚 Đang giao' :
-                                 order.status === 'cancelled' ? '❌ Đã hủy' :
-                                 '⏳ Chờ xử lý'}
+                                  order.status === 'shipping' ? 'Đang giao' :
+                                    order.status === 'cancelled' ? '❌ Đã hủy' :
+                                      '⏳ Chờ xử lý'}
                               </span>
                             </div>
-                            
+
                             {order.items && order.items.length > 0 && (
                               <div className='mb-4 space-y-2'>
                                 <p className='text-sm font-medium text-gray-700'>Sản phẩm:</p>
@@ -329,7 +326,7 @@ export default function Profile() {
                                 ))}
                               </div>
                             )}
-                            
+
                             <div className='flex justify-between items-center pt-3 border-t'>
                               <span className='text-gray-600'>Tổng cộng:</span>
                               <span className='text-2xl font-bold text-[#2E7D32]'>

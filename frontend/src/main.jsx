@@ -14,6 +14,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import Cart from './pages/Cart'
+import WishPage from './pages/WishPage'
+import CreateWishPage from './pages/CreateWishPage'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
@@ -21,18 +23,20 @@ createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<App/>}>
-            <Route index element={<Home/>} />
-            <Route path='about' element={<About/>} />
-            <Route path='products' element={<Products/>} />
-            <Route path='product/:id' element={<ProductPage/>} />
-            <Route path='blog' element={<Blog/>} />
-            <Route path='blog/:slug' element={<BlogPost/>} />
-            <Route path='login' element={<Login/>} />
-            <Route path='register' element={<Register/>} />
-            <Route path='profile' element={<Profile/>} />
-            <Route path='cart' element={<Cart/>} />
-            <Route path='admin' element={<Admin/>} />
+          <Route path='/' element={<App />}>
+            <Route index element={<Home />} />
+            <Route path='about' element={<About />} />
+            <Route path='products' element={<Products />} />
+            <Route path='product/:id' element={<ProductPage />} />
+            <Route path='blog' element={<Blog />} />
+            <Route path='blog/:slug' element={<BlogPost />} />
+            <Route path='wish/:id' element={<WishPage />} />
+            <Route path='create-wish' element={<CreateWishPage />} />
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='cart' element={<Cart />} />
+            <Route path='admin' element={<Admin />} />
           </Route>
         </Routes>
       </BrowserRouter>

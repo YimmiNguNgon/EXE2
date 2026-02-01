@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
   const context = useOutletContext();
   const setUser = context?.setUser;
-  
+
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -25,18 +25,18 @@ export default function Login() {
         email: formData.email.trim().toLowerCase(),
         password: formData.password
       });
-      
+
       if (response.data && response.data.token && response.data.user) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
-        
+
         // Update user state in App if setUser is available
         if (setUser) {
           setUser(response.data.user);
         }
-        
+
         setSuccess('Đăng nhập thành công! Đang chuyển hướng...');
-        
+
         // Redirect based on role
         setTimeout(() => {
           if (response.data.user.role === 'admin') {
@@ -59,18 +59,18 @@ export default function Login() {
   return (
     <>
       <Helmet>
-        <title>Đăng nhập — Grella</title>
+        <title>Đăng nhập — DearHim</title>
       </Helmet>
 
-      <div className='min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA] flex items-center justify-center py-12 px-4'>
+      <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex items-center justify-center py-12 px-4'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className='bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md'
         >
           <div className='text-center mb-8'>
-            <h1 className='text-3xl font-bold text-[#704214] mb-2'>Đăng nhập</h1>
-            <p className='text-gray-600'>Chào mừng bạn quay lại Grella!</p>
+            <h1 className='text-3xl font-bold text-[#1e3a5f] mb-2'>Đăng nhập</h1>
+            <p className='text-gray-600'>Chào mừng bạn quay lại DearHim!</p>
           </div>
 
           {error && (
@@ -95,7 +95,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className='space-y-4'>
             <div>
-              <label className='block text-sm font-semibold text-[#704214] mb-2'>
+              <label className='block text-sm font-semibold text-[#1e3a5f] mb-2'>
                 Email
               </label>
               <input
@@ -103,13 +103,13 @@ export default function Login() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#A8E6CF] focus:outline-none transition'
+                className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#d4af37] focus:outline-none transition'
                 placeholder='your@email.com'
               />
             </div>
 
             <div>
-              <label className='block text-sm font-semibold text-[#704214] mb-2'>
+              <label className='block text-sm font-semibold text-[#1e3a5f] mb-2'>
                 Mật khẩu
               </label>
               <input
@@ -117,7 +117,7 @@ export default function Login() {
                 required
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#A8E6CF] focus:outline-none transition'
+                className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#d4af37] focus:outline-none transition'
                 placeholder='••••••••'
               />
             </div>
@@ -127,7 +127,7 @@ export default function Login() {
               whileTap={{ scale: 0.98 }}
               type='submit'
               disabled={loading}
-              className='w-full py-3 bg-gradient-to-r from-[#A8E6CF] to-[#8FD9B6] text-[#225544] rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50'
+              className='w-full py-3 bg-gradient-to-r from-[#1e3a5f] to-[#2c5f8d] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50'
             >
               {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
             </motion.button>
@@ -136,7 +136,7 @@ export default function Login() {
           <div className='mt-6 text-center'>
             <p className='text-gray-600'>
               Chưa có tài khoản?{' '}
-              <Link to='/register' className='text-[#A8E6CF] hover:text-[#8FD9B6] font-semibold'>
+              <Link to='/register' className='text-[#d4af37] hover:text-[#c19b2f] font-semibold'>
                 Đăng ký ngay
               </Link>
             </p>
@@ -144,19 +144,19 @@ export default function Login() {
 
           <div className='mt-6 pt-6 border-t border-gray-200'>
             <p className='text-sm text-gray-500 text-center'>
-              <strong>Demo accounts:</strong><br/>
-              Admin: admin@grella.com / admin123<br/>
-              User: user@grella.com / user123
+              <strong>Demo accounts:</strong><br />
+              Admin: admin@dearhim.vn / admin123<br />
+              User: user@dearhim.vn / user123
             </p>
           </div>
 
           <div className='mt-6 text-center'>
-            <Link to='/' className='text-sm text-gray-600 hover:text-[#704214]'>
+            <Link to='/' className='text-sm text-gray-600 hover:text-[#1e3a5f]'>
               ← Quay lại trang chủ
             </Link>
           </div>
         </motion.div>
-      </div>
+      </div >
     </>
   );
 }
