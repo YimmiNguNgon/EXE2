@@ -147,7 +147,7 @@ export default function CreateWishPage() {
                                 <div className="flex flex-col items-center">
                                     <div className="relative">
                                         <motion.img
-                                            src={`http://localhost:4000${qrData.qrCodeUrl}`}
+                                            src={qrData.qrCodeUrl}
                                             alt="QR Code"
                                             className="w-72 h-72 rounded-2xl shadow-2xl"
                                             initial={{ rotate: -5, scale: 0.9 }}

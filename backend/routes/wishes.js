@@ -39,19 +39,12 @@ router.get('/:id/qrcode', async (req, res) => {
             return res.status(404).json({ error: 'Wish not found' });
         }
 
-        // Generate QR code URL - use request origin for mobile testing
+        // Generate QR code URL using request origin (works for both local and production)
         const origin = req.get('origin') || req.get('referer')?.replace(/\/$/, '') || 'http://localhost:5173';
         const wishUrl = `${origin}/wish/${wish._id}`;
 
-        // Create public/qrcodes directory if it doesn't exist
-        const qrDir = path.join(__dirname, '../public/qrcodes');
-        if (!fs.existsSync(qrDir)) {
-            fs.mkdirSync(qrDir, { recursive: true });
-        }
-
-        // Generate and save QR code
-        const qrPath = path.join(qrDir, `${wish._id}.png`);
-        await QRCode.toFile(qrPath, wishUrl, {
+        // Generate QR code as base64 data URL (no filesystem needed - works on Render)
+        const qrDataUrl = await QRCode.toDataURL(wishUrl, {
             color: {
                 dark: '#1e3a5f',  // DearHim blue
                 light: '#FFFFFF'
@@ -59,9 +52,8 @@ router.get('/:id/qrcode', async (req, res) => {
             width: 400
         });
 
-        // Return QR code URL
         res.json({
-            qrCodeUrl: `/qrcodes/${wish._id}.png`,
+            qrCodeUrl: qrDataUrl,   // base64 data URL, usable directly as <img src>
             wishUrl: wishUrl,
             wishId: wish._id
         });
