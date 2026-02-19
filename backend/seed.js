@@ -7,78 +7,38 @@ async function seed() {
   await Product.deleteMany({});
   const items = [
     {
-      name: 'Hộp quà "Classic Man" ☕',
-      price: 450000,
-      age: 'Người lớn',
-      stock: 25,
-      img: '/images/products/classic-man.jpg',
-      desc: 'Hộp quà dành cho quý ông yêu thích sự lịch lãm. Bao gồm: Cà phê specialty, sổ tay da cao cấp, bút ký kim loại, và thiệp viết tay.',
-      features: ['Cà phê specialty 250g', 'Sổ tay da thật', 'Bút ký cao cấp', 'Thiệp viết tay + ảnh'],
-      category: 'Công sở'
-    },
-    {
-      name: 'Hộp quà "Sport Lover" ⚽',
-      price: 500000,
-      age: 'Người lớn',
-      stock: 20,
-      img: '/images/products/sport-lover.jpg',
-      desc: 'Dành cho những chàng trai yêu thể thao. Bao gồm: Khăn thể thao, bình nước cao cấp, dây đeo tay thể thao, và thiệp động viên.',
-      features: ['Khăn thể thao premium', 'Bình nước 750ml', 'Dây đeo tay silicon', 'Thiệp tay chân thành'],
-      category: 'Thể thao'
-    },
-    {
-      name: 'Hộp quà "Tech Geek" 💻',
-      price: 550000,
-      age: 'Người lớn',
-      stock: 18,
-      img: '/images/products/tech-geek.jpg',
-      desc: 'Cho những tín đồ công nghệ. Bao gồm: Đế đỡ laptop, chuột không dây, túi đựng phụ kiện, và thiệp viết tay.',
-      features: ['Đế laptop nhôm', 'Chuột wireless', 'Túi phụ kiện canvas', 'Thiệp + ảnh kỷ niệm'],
-      category: 'Công nghệ'
-    },
-    {
-      name: 'Hộp quà "Romantic" 💝',
-      price: 650000,
-      age: 'Người lớn',
-      stock: 30,
-      img: '/images/products/romantic.jpg',
-      desc: 'Hộp quà lãng mạn cho người yêu. Bao gồm: Nến thơm cao cấp, khung ảnh đôi, album ảnh mini, hoa hồng sáp, và thiệp tình yêu viết tay.',
-      features: ['Nến thơm pháp', 'Khung ảnh đôi sang trọng', 'Album 20 ảnh', 'Hoa hồng sáp + thiệp tay'],
-      category: 'Tình yêu'
-    },
-    {
-      name: 'Hộp quà "Father\'s Pride" 👨',
-      price: 700000,
-      age: 'Người lớn',
+      name: 'Box Hot Wheels',
+      price: 280000,
+      age: 'Mọi lứa tuổi',
       stock: 15,
-      img: '/images/products/father-pride.jpg',
-      desc: 'Món quà tri ân dành cho bố. Bao gồm: Ví da bò thật, thắt lưng da, trà cao cấp, và thiệp cảm ơn chân thành.',
-      features: ['Ví da bò Italy', 'Thắt lưng da thật', 'Trà ô long 100g', 'Thiệp viết tay + ảnh gia đình'],
-      category: 'Gia đình'
+      img: ['/images/products/product1.jpg', '/images/products/product2.jpg'],
+      desc: 'Hộp quà trong suốt với chủ đề Hot Wheels siêu đẹp. Bao gồm: Xe Hot Wheels collector, KitKat chocolate. Trang trí nơ hồng lãng mạn và rơm trang trí. Kèm lời nhắn đến người thương.',
+      features: ['Xe Hot Wheels collector', 'KitKat chocolate', 'Lịch Hot Wheels độc quyền', 'Hộp trong suốt cao cấp', 'Nơ hồng handmade', 'Rơm trang trí', 'Lời nhắn viết tay'],
+      category: 'Quà tặng'
     },
     {
-      name: 'Hộp quà "Minimalist" 🎨',
-      price: 400000,
-      age: 'Người lớn',
-      stock: 22,
-      img: '/images/products/minimalist.jpg',
-      desc: 'Phong cách tối giản, sang trọng. Bao gồm: Móc khóa da, ví card nhỏ gọn, bút bi cao cấp, và thiệp viết tay.',
-      features: ['Móc khóa da thật', 'Ví card tối giản', 'Bút bi Parker', 'Thiệp viết tay'],
-      category: 'Phong cách'
+      name: 'Box Bóng',
+      price: 280000,
+      age: 'Mọi lứa tuổi',
+      stock: 20,
+      img: ['/images/products/product3.jpg', '/images/products/product4.jpg'],
+      desc: 'Hộp quà siêu cute với Bóng mềm mại trong hộp trong suốt viền gỗ có đèn LED trang trí. Kèm theo KitKat, Pocky và rơm trang trí màu hồng. Món quà hoàn hảo cho người yêu đam mê thể thao.',
+      features: ['Bóng mềm mại chất lượng cao', 'Đèn LED fairy lights', 'KitKat chocolate', 'Hộp trong suốt viền gỗ', 'Rơm trang trí màu hồng', 'Glico Pocky'],
+      category: 'Quà tặng'
     },
     {
-      name: 'Hộp quà "Custom Dream" ✨',
-      price: 800000,
-      age: 'Người lớn',
+      name: 'Box Khăn Thêu Tên',
+      price: 280000,
+      age: 'Mọi lứa tuổi',
       stock: 10,
-      img: '/images/products/custom-dream.jpg',
-      desc: 'Hộp quà tùy chỉnh hoàn toàn theo ý bạn. Chọn sản phẩm yêu thích, thiết kế thiệp riêng, chọn ảnh in đẹp - Tạo nên món quà độc nhất!',
-      features: ['Tự chọn 5-7 món quà', 'Thiết kế thiệp theo yêu cầu', 'In ảnh chất lượng cao', 'Đóng gói cao cấp nhất'],
-      category: 'Cao cấp'
+      img: ['/images/products/product5.jpg', '/images/products/product5.jpg'],
+      desc: 'Hộp quà ý nghĩa với khăn đen được thêu tên theo yêu cầu (VD: "Naeni"). Kèm thiệp viết tay chân thành và ảnh polaroid kỷ niệm. Món quà hoàn hảo cho người thân yêu!',
+      features: ['Khăn đen cao cấp', 'Thêu tên theo yêu cầu + biểu tượng', 'Thiệp viết tay handmade', 'Ảnh polaroid in màu', 'Hộp quà kraft sang trọng', 'Đóng gói cẩn thận'],
+      category: 'Quà tặng'
     }
   ];
   await Product.insertMany(items);
-  console.log('✅ Seeded 7 DearHim gift boxes successfully!');
+  console.log('✅ Seeded 3 DearHim gift boxes successfully!');
   process.exit();
 }
 seed();

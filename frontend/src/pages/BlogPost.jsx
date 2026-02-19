@@ -24,7 +24,7 @@ export default function BlogPost() {
   if (loading) {
     return (
       <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA]'>
-        <motion.div 
+        <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           className='w-12 h-12 border-4 border-[#704214] border-t-transparent rounded-full'
@@ -54,7 +54,7 @@ export default function BlogPost() {
       <div className='min-h-screen bg-gradient-to-br from-[#FFF5B1] via-[#FFEFEF] to-[#E8FBEA] py-8 px-4'>
         <article className='max-w-4xl mx-auto'>
           {/* Breadcrumb */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className='mb-6 text-sm text-[#704214]'
@@ -67,7 +67,7 @@ export default function BlogPost() {
           </motion.div>
 
           {/* Article Card */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -76,8 +76,8 @@ export default function BlogPost() {
             {/* Featured Image */}
             {blog.image && (
               <div className='relative h-96 bg-gradient-to-br from-[#FFE5B4] to-[#FFF5B1] overflow-hidden'>
-                <img 
-                  src={blog.image} 
+                <img
+                  src={blog.image}
                   alt={blog.title}
                   className='w-full h-full object-cover'
                   onError={(e) => e.target.style.display = 'none'}
@@ -94,9 +94,9 @@ export default function BlogPost() {
                     {blog.category}
                   </span>
                 )}
-                <span>📖 {blog.readTime} phút đọc</span>
-                <span>✍️ {blog.author}</span>
-                <span>📅 {new Date(blog.createdAt).toLocaleDateString('vi-VN')}</span>
+                <span>{blog.readTime} phút đọc</span>
+                <span>{blog.author}</span>
+                <span>{new Date(blog.createdAt).toLocaleDateString('vi-VN')}</span>
               </div>
 
               {/* Title */}
@@ -110,7 +110,7 @@ export default function BlogPost() {
               </p>
 
               {/* Content */}
-              <div 
+              <div
                 className='prose prose-lg max-w-none
                   prose-headings:text-[#704214] 
                   prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4
@@ -130,7 +130,7 @@ export default function BlogPost() {
                   <h3 className='text-sm font-semibold text-gray-600 mb-3'>Tags:</h3>
                   <div className='flex flex-wrap gap-2'>
                     {blog.tags.map((tag, idx) => (
-                      <span 
+                      <span
                         key={idx}
                         className='px-3 py-1 bg-[#E8FBEA] text-[#2E7D32] rounded-full text-sm'
                       >
@@ -144,20 +144,20 @@ export default function BlogPost() {
           </motion.div>
 
           {/* Navigation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className='mt-8 flex justify-between items-center'
           >
-            <Link 
-              to='/blog' 
+            <Link
+              to='/blog'
               className='inline-block px-6 py-3 text-[#704214] hover:text-[#8B5A2B] font-medium transition'
             >
               ← Tất cả bài viết
             </Link>
-            <Link 
-              to='/' 
+            <Link
+              to='/'
               className='inline-block px-6 py-3 text-[#704214] hover:text-[#8B5A2B] font-medium transition'
             >
               Trang chủ →

@@ -104,22 +104,36 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#FFD7A8]">📱</span>
-                <a href="tel:0123456789" className="text-sm text-[#FFD7A8] hover:text-white transition">
-                  0123 456 789
+                <a href="tel:0336143011" className="text-sm text-[#FFD7A8] hover:text-white transition">
+                  0336 143 011
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#4267B2]">📘</span>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61587336933677"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#93c5fd] hover:text-white transition font-medium"
+                >
+                  Facebook DearHim
                 </a>
               </li>
             </ul>
 
             {/* Social Media */}
             <div className="mt-4 flex gap-3">
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+              <a
+                href="https://www.facebook.com/profile.php?id=61587336933677"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-[#4267B2] rounded-full flex items-center justify-center hover:bg-[#5b7bd5] transition"
+                title="Facebook DearHim"
+              >
                 <span className="text-sm">📘</span>
               </a>
               <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
                 <span className="text-sm">📷</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
-                <span className="text-sm">🐦</span>
               </a>
             </div>
           </div>

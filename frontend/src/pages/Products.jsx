@@ -3,6 +3,7 @@ import api from "../api";
 import { useOutletContext, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { resolveImageUrl } from "../utils/imageUrl";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -110,106 +111,52 @@ export default function Products() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-md p-6 mb-8"
+            className="bg-gradient-to-br from-white to-[#FFF9E6] rounded-3xl shadow-lg p-8 mb-8 border border-[#FFE5B4]/30"
           >
             {/* Search by name */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
-                Tìm kiếm sản phẩm
+            <div className="mb-8">
+              <label className="block text-lg font-semibold text-[#704214] mb-3">
+                🔍 Tìm kiếm sản phẩm
               </label>
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Nhập tên sản phẩm..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                className="w-full px-5 py-3 border-2 border-[#FFE5B4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition text-[#704214] placeholder-gray-400"
               />
             </div>
 
-            {/* Price Range Buttons */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-[#1e3a5f] mb-3">
-                Lọc theo khoảng giá
+            {/* Sort */}
+            <div className="mb-8">
+              <label className="block text-lg font-semibold text-[#704214] mb-3">
+                🔄 Sắp xếp
               </label>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-                {priceRanges.map((range, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handlePriceRangeSelect(range)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${selectedPriceRange === range.label
-                      ? "bg-[#d4af37] text-white shadow-md"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
-                  >
-                    {range.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Custom Price Range */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div>
-                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
-                  Giá tối thiểu (tùy chỉnh)
-                </label>
-                <input
-                  type="number"
-                  value={priceRange.min}
-                  onChange={(e) => {
-                    setPriceRange({ ...priceRange, min: e.target.value });
-                    setSelectedPriceRange("");
-                  }}
-                  placeholder="0"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
-                  Giá tối đa (tùy chỉnh)
-                </label>
-                <input
-                  type="number"
-                  value={priceRange.max}
-                  onChange={(e) => {
-                    setPriceRange({ ...priceRange, max: e.target.value });
-                    setSelectedPriceRange("");
-                  }}
-                  placeholder="1000000"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
-                />
-              </div>
-
-              {/* Sort */}
-              <div>
-                <label className="block text-sm font-medium text-[#1e3a5f] mb-2">
-                  Sắp xếp
-                </label>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
-                >
-                  <option value="default">Mặc định</option>
-                  <option value="price-asc">Giá: Thấp đến cao</option>
-                  <option value="price-desc">Giá: Cao đến thấp</option>
-                  <option value="name">Tên: A-Z</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Reset button */}
-            <div className="flex justify-between items-center">
-              <div className="text-sm text-[#2c5f8d]">
-                Tìm thấy <span className="font-bold">{filteredProducts.length}</span> sản phẩm
-              </div>
-              <button
-                onClick={handleResetFilters}
-                className="px-4 py-2 bg-[#d4af37] text-white rounded-lg hover:bg-[#c19b2f] transition"
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="w-full md:w-64 px-5 py-3 border-2 border-[#FFE5B4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition text-[#704214] font-medium bg-white cursor-pointer"
               >
-                Đặt lại bộ lọc
-              </button>
+                <option value="default">Mặc định</option>
+                <option value="price-asc">Giá: Thấp đến cao</option>
+                <option value="price-desc">Giá: Cao đến thấp</option>
+                <option value="name">Tên: A-Z</option>
+              </select>
+            </div>
+
+            {/* Results and Reset */}
+            <div className="flex flex-wrap justify-between items-center gap-4 pt-6 border-t-2 border-[#FFE5B4]">
+              <div className="text-[#704214] font-medium">
+                Tìm thấy <span className="font-bold text-[#d4af37] text-xl">{filteredProducts.length}</span> sản phẩm
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleResetFilters}
+                className="px-6 py-3 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-white rounded-xl hover:shadow-lg transition font-semibold"
+              >
+                ↻ Đặt lại bộ lọc
+              </motion.button>
             </div>
           </motion.div>
 
@@ -241,7 +188,7 @@ export default function Products() {
                 >
                   <Link to={`/product/${p._id}`} className="block">
                     <img
-                      src={p.img || "https://via.placeholder.com/600x360"}
+                      src={resolveImageUrl(Array.isArray(p.img) ? p.img[0] : p.img) || "https://via.placeholder.com/600x360"}
                       alt={p.name}
                       loading="lazy"
                       className="w-full h-48 object-cover"
