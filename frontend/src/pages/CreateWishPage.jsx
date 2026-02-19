@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import api from '../api';
+import QRCode from 'qrcode';
 
 export default function CreateWishPage() {
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function CreateWishPage() {
     const [error, setError] = useState(null);
     const [createdWish, setCreatedWish] = useState(null);
     const [qrData, setQrData] = useState(null);
+    const [qrImageUrl, setQrImageUrl] = useState('');
 
     const categories = [
         { value: 'general', label: 'Chung', emoji: '🎁', color: 'from-purple-400 to-pink-400' },
@@ -53,6 +55,15 @@ export default function CreateWishPage() {
             const qrResponse = await api.get(`/wishes/${wishResponse.data._id}/qrcode`);
             setQrData(qrResponse.data);
 
+            // Generate QR code image on frontend (reliable on all platforms)
+            const wishUrl = qrResponse.data.wishUrl;
+            const dataUrl = await QRCode.toDataURL(wishUrl, {
+                width: 400,
+                margin: 2,
+                color: { dark: '#1e3a5f', light: '#FFFFFF' }
+            });
+            setQrImageUrl(dataUrl);
+
             setLoading(false);
         } catch (err) {
             setError(err.response?.data?.error || err.message || 'Có lỗi xảy ra');
@@ -78,6 +89,7 @@ export default function CreateWishPage() {
         setFormData({ message: '', category: 'general', creatorName: '' });
         setCreatedWish(null);
         setQrData(null);
+        setQrImageUrl('');
         setError(null);
     };
 
@@ -147,7 +159,7 @@ export default function CreateWishPage() {
                                 <div className="flex flex-col items-center">
                                     <div className="relative">
                                         <motion.img
-                                            src={qrData.qrCodeUrl}
+                                            src={qrImageUrl}
                                             alt="QR Code"
                                             className="w-72 h-72 rounded-2xl shadow-2xl"
                                             initial={{ rotate: -5, scale: 0.9 }}
