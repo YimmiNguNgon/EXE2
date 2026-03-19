@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-sm text-[#cbd5e1] hover:text-white transition">
-                  📞 Liên hệ
+                  📞 Liên hệ : 0336 14 3011
                 </a>
               </li>
               <li>
@@ -99,7 +99,7 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <span className="text-[#d4af37]">📧</span>
                 <a href="mailto:contact@dearhim.vn" className="text-sm text-[#cbd5e1] hover:text-white transition">
-                  contact@dearhim.vn
+                  huyhdhe187019@fpt.edu.vn
                 </a>
               </li>
               <li className="flex items-start gap-2">
