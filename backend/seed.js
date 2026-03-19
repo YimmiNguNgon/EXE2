@@ -8,7 +8,7 @@ async function seed() {
   const items = [
     {
       name: 'Box Hot Wheels',
-      price: 280000,
+      price: 350000,
       age: 'Mọi lứa tuổi',
       stock: 15,
       img: ['/images/products/product1.jpg', '/images/products/product2.jpg'],
@@ -18,20 +18,20 @@ async function seed() {
     },
     {
       name: 'Box Bóng',
-      price: 280000,
+      price: 310000,
       age: 'Mọi lứa tuổi',
       stock: 20,
-      img: ['/images/products/product3.jpg', '/images/products/product4.jpg'],
+      img: ['/images/products/product3.jpg'],
       desc: 'Hộp quà siêu cute với Bóng mềm mại trong hộp trong suốt viền gỗ có đèn LED trang trí. Kèm theo KitKat, Pocky và rơm trang trí màu hồng. Món quà hoàn hảo cho người yêu đam mê thể thao.',
       features: ['Bóng mềm mại chất lượng cao', 'Đèn LED fairy lights', 'KitKat chocolate', 'Hộp trong suốt viền gỗ', 'Rơm trang trí màu hồng', 'Glico Pocky'],
       category: 'Quà tặng'
     },
     {
       name: 'Box Khăn Thêu Tên',
-      price: 280000,
+      price: 275000,
       age: 'Mọi lứa tuổi',
       stock: 10,
-      img: ['/images/products/product5.jpg', '/images/products/product5.jpg'],
+      img: ['/images/products/product5.jpg', '/images/products/product6.jpg'],
       desc: 'Hộp quà ý nghĩa với khăn đen được thêu tên theo yêu cầu (VD: "Naeni"). Kèm thiệp viết tay chân thành và ảnh polaroid kỷ niệm. Món quà hoàn hảo cho người thân yêu!',
       features: ['Khăn đen cao cấp', 'Thêu tên theo yêu cầu + biểu tượng', 'Thiệp viết tay handmade', 'Ảnh polaroid in màu', 'Hộp quà kraft sang trọng', 'Đóng gói cẩn thận'],
       category: 'Quà tặng'
